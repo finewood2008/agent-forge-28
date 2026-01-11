@@ -46,15 +46,19 @@ export const AboutSection = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary text-sm font-medium tracking-wider uppercase mb-4 block">
-            About & Trust
+            About Q-Atlas AI
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             关于
             <span className="gradient-text">企数星图</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
-            汇聚YY、阿里、金山等500强企业核心技术精英，拥有极强的实战落地经验。
-            我们具备从数据清洗、模型训练到端侧部署的全链路能力。
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            企数星图是一家专注于<span className="text-foreground font-medium">行业智能体开发</span>的AI公司。
+            我们的团队来自阿里、YY、金山等互联网大厂，拥有丰富的AI模型开发与产品落地经验。
+            2025年，我们获得国家大模型备案认证，具备模型私有化部署资质。
+          </p>
+          <p className="text-muted-foreground text-lg leading-relaxed mt-4">
+            <span className="text-foreground font-medium">我们的使命：</span>帮助每一个想要拥有专属AI智能体的企业，从底层模型开始构建真正懂业务的智能体。
           </p>
         </motion.div>
 
