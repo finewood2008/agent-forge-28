@@ -38,7 +38,7 @@ export const HeroSection = () => {
           >
             <Shield className="w-4 h-4 text-accent" />
             <span className="text-sm text-muted-foreground">
-              2025年 国家大模型备案认证 · 区别于扣子/Dify等工具搭建
+              2025年 国家大模型备案认证
             </span>
           </motion.div>
 
