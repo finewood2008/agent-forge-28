@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "核心能力", href: "#capabilities" },
@@ -34,9 +35,7 @@ export const Header = () => {
       <div className="container flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">企</span>
-          </div>
+          <img src={logo} alt="企数星图" className="w-10 h-10 object-contain" />
           <span className="text-xl font-bold text-foreground">
             企数星图
           </span>
