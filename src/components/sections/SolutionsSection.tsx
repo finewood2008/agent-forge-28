@@ -7,17 +7,19 @@ import {
   Mic, 
   Eye,
   Lightbulb,
-  Zap,
   RefreshCw,
-  MessageSquare,
   Globe,
   FileText,
   Route,
-  Bell,
   TrendingUp,
   ArrowRight,
   ExternalLink
 } from "lucide-react";
+
+// Import product images
+import xmakehubImage from "@/assets/xmakehub-screenshot.jpeg";
+import aiRecorderImage from "@/assets/ai-recorder-device.png";
+import droneInspectionImage from "@/assets/drone-inspection.png";
 
 const solutions = [
   {
@@ -27,6 +29,7 @@ const solutions = [
     subtitle: "帮助企业快速完成硬件产品的工业设计",
     description: "基于深度学习的硬件外观设计AI，能够快速生成产品创意、迭代设计方案，大幅缩短硬件产品的ID设计周期。",
     link: "https://www.xmakehub.com",
+    image: xmakehubImage,
     features: [
       { icon: Palette, label: "AI驱动设计", desc: "智能生成硬件外观设计" },
       { icon: Lightbulb, label: "快速构思", desc: "分钟级产品原型创意" },
@@ -41,6 +44,7 @@ const solutions = [
     title: "会议语音智能体",
     subtitle: "专业级AI会议助手，让每场会议都有价值",
     description: "软硬一体的智能会议解决方案，集成高清录音硬件与云端AI处理能力，实现会议全流程智能化。",
+    image: aiRecorderImage,
     features: [
       { icon: Mic, label: "实时录音转写", desc: "高精度语音识别" },
       { icon: Globe, label: "多语言翻译", desc: "实时跨语言沟通" },
@@ -55,6 +59,7 @@ const solutions = [
     title: "无人机视觉识别AI",
     subtitle: "赋予无人机'认知大脑'，实现低空作业全自动化",
     description: "基于YOLO框架的视觉小模型深度训练，在边缘端即可实现高精度识别。支持多场景模型快速适配与持续迭代。",
+    image: droneInspectionImage,
     features: [
       { icon: Eye, label: "端侧视觉识别", desc: "边缘端高精度AI" },
       { icon: Route, label: "全自动巡检", desc: "航线规划到告警闭环" },
@@ -151,17 +156,22 @@ export const SolutionsSection = () => {
                     )}
                   </div>
 
-                  {/* Visual */}
+                  {/* Visual - Product Image */}
                   <div className={`relative ${index === 1 ? "lg:order-1" : ""}`}>
-                    <div className={`aspect-square rounded-2xl bg-gradient-to-br ${solution.gradient} opacity-20`} />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="glass rounded-2xl p-8 w-4/5">
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                      <img 
+                        src={solution.image} 
+                        alt={solution.title}
+                        className="w-full h-auto object-cover"
+                      />
+                      {/* Overlay with applications */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/95 via-background/70 to-transparent p-6">
                         <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wider">适用客户</p>
                         <div className="flex flex-wrap gap-2">
                           {solution.applications.map((app) => (
                             <span
                               key={app}
-                              className="px-3 py-1.5 rounded-full text-sm bg-secondary/80 text-secondary-foreground"
+                              className="px-3 py-1.5 rounded-full text-xs bg-secondary/80 text-secondary-foreground backdrop-blur-sm"
                             >
                               {app}
                             </span>
