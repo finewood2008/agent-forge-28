@@ -36,9 +36,12 @@ export const Header = () => {
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
           <img src={logo} alt="企数星图" className="w-10 h-10 object-contain" />
-          <span className="text-xl font-bold text-foreground">
-            企数星图
-          </span>
+          <div className="flex flex-col">
+            <span className="text-xl font-bold text-foreground leading-tight">
+              企数星图
+            </span>
+            <span className="text-xs text-muted-foreground">Q-Atlas AI</span>
+          </div>
         </a>
 
         {/* Desktop Navigation */}

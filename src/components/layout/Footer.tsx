@@ -8,9 +8,12 @@ export const Footer = () => {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <img src={logo} alt="企数星图" className="w-8 h-8 object-contain" />
-            <span className="text-lg font-semibold text-foreground">
-              企数星图
-            </span>
+            <div className="flex flex-col">
+              <span className="text-lg font-semibold text-foreground leading-tight">
+                企数星图
+              </span>
+              <span className="text-xs text-muted-foreground">Q-Atlas AI</span>
+            </div>
           </div>
 
           {/* Links */}
