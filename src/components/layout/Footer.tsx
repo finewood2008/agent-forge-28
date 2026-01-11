@@ -1,3 +1,5 @@
+import logo from "@/assets/logo.png";
+
 export const Footer = () => {
   return (
     <footer className="py-12 border-t border-border/50">
@@ -5,9 +7,7 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">企</span>
-            </div>
+            <img src={logo} alt="企数星图" className="w-8 h-8 object-contain" />
             <span className="text-lg font-semibold text-foreground">
               企数星图
             </span>
