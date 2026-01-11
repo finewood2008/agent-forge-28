@@ -1,23 +1,23 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Shield, Settings, Cloud } from "lucide-react";
+import { Layers, GitBranch, Cpu } from "lucide-react";
 
 const capabilities = [
   {
-    icon: Shield,
-    title: "合规自主",
-    description: "持有国家大模型备案认证，数据可控，安全合规。满足B2B2G级别的严苛要求。",
+    icon: Layers,
+    title: "模型层能力",
+    description: "拥有大模型备案资质，具备模型微调与私有化部署能力。不只是API调用，而是真正的模型开发。",
   },
   {
-    icon: Settings,
-    title: "深度定制",
-    description: "基于开源基座进行二次开发，精准适配垂直场景。每个智能体都经过行业数据深度浸润。",
+    icon: GitBranch,
+    title: "全链路交付",
+    description: "从需求分析、数据处理、模型训练到智能体部署，一站式交付。您只需提出需求，我们负责落地。",
   },
   {
-    icon: Cloud,
-    title: "端云协同",
-    description: "既懂云端大脑，又懂边缘硬件。实现ESP32/无人机等设备的软硬一体化部署。",
+    icon: Cpu,
+    title: "软硬一体",
+    description: "既能做云端智能体，也能部署到ESP32、无人机等边缘设备。真正实现端云协同的智能体解决方案。",
   },
 ];
 
@@ -39,18 +39,17 @@ export const CapabilitiesSection = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary text-sm font-medium tracking-wider uppercase mb-4 block">
-            The Agent Factory
+            Why Q-Atlas AI
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            底层模型驱动
+            为什么选择企数星图？
             <br />
-            <span className="gradient-text">定义行业专属智能体</span>
+            <span className="gradient-text">真正从模型层构建的智能体开发能力</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            我们不只提供标准化的AI，我们构建懂您业务的"数字专家"。
-            企数星图依托核心团队来自YY、阿里、金山的深厚技术积累，
-            以<span className="text-foreground font-medium">"模型微调(Fine-tuning) + 智能体编排(Agent Orchestration)"</span>为双引擎，
-            确保每一个智能体都具备极高的场景适应性与数据安全性。
+            市面上的智能体工具（如扣子、Dify）本质上是在调用通用大模型API做简单编排。
+            而企数星图不同——我们拥有<span className="text-foreground font-medium">从数据清洗、模型微调、知识注入到端侧部署</span>的全链路能力。
+            这意味着：您的智能体不是"套壳ChatGPT"，而是真正理解您业务的专属AI。
           </p>
         </motion.div>
 
