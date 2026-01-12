@@ -47,6 +47,18 @@ export const Footer = () => {
             © 2025 {t("企数星图", "Q-Atlas AI")}. {t("保留所有权利", "All rights reserved")}.
           </p>
         </div>
+
+        {/* ICP备案号 */}
+        <div className="mt-8 pt-6 border-t border-border/30 text-center">
+          <a
+            href="https://beian.miit.gov.cn/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-muted-foreground/70 hover:text-muted-foreground transition-colors"
+          >
+            粤ICP备2022128768号
+          </a>
+        </div>
       </div>
     </footer>
   );
