@@ -2,9 +2,14 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Lightbulb, Target, Shield, MessageSquare } from "lucide-react";
+import { Sparkles, Lightbulb, Target, Shield, MessageSquare, AlertTriangle } from "lucide-react";
 
 const customerProfiles = [
+  {
+    icon: AlertTriangle,
+    title: "试过消费级AI工具，担心企业数据安全",
+    description: "使用扣子、Dify等消费级工具时，企业核心数据需上传至公有云，存在严重的数据泄露风险和合规隐患。",
+  },
   {
     icon: Lightbulb,
     title: "想要AI转型，但不知从何入手",
@@ -12,18 +17,18 @@ const customerProfiles = [
   },
   {
     icon: Target,
-    title: "尝试过通用AI工具，效果不理想",
-    description: "用过ChatGPT、扣子、Dify等工具，发现它们不懂您的业务场景，回答总是不够专业。",
+    title: "尝试过消费级AI工具，效果不理想",
+    description: "用过ChatGPT、扣子、Dify等消费级工具，发现它们不懂您的业务场景，无法满足企业级专业要求。",
   },
   {
     icon: MessageSquare,
     title: "需要行业专属智能体，又没有模型团队",
-    description: "您需要的是真正理解行业术语和流程的专属AI，而非通用对话机器人。",
+    description: "您需要的是真正理解行业术语和流程的企业级专属AI，而非消费级通用对话机器人。",
   },
   {
     icon: Shield,
-    title: "对数据安全有严格要求",
-    description: "您的业务数据敏感，需要私有化部署和数据隔离，不能使用公有云AI服务。",
+    title: "对数据安全和合规有严格要求",
+    description: "金融、医疗、政务等行业对数据安全有刚性要求，需要私有化部署和完整合规认证。",
   },
 ];
 
