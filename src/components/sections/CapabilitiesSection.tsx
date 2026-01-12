@@ -6,18 +6,18 @@ import { Layers, GitBranch, Cpu } from "lucide-react";
 const capabilities = [
   {
     icon: Layers,
-    title: "模型层能力",
-    description: "拥有大模型备案资质，具备模型微调与私有化部署能力。不只是API调用，而是真正的模型开发。",
+    title: "企业级模型能力",
+    description: "拥有国家大模型备案资质，支持模型私有化部署。您的企业数据100%留在自有环境，符合金融、医疗等行业合规要求。",
   },
   {
     icon: GitBranch,
-    title: "全链路交付",
-    description: "从需求分析、数据处理、模型训练到智能体部署，一站式交付。您只需提出需求，我们负责落地。",
+    title: "企业级全链路交付",
+    description: "企业数据清洗（脱敏处理）、专属模型微调、企业知识注入、到最终部署。不是简单的Prompt工程，而是深度定制。",
   },
   {
     icon: Cpu,
-    title: "软硬一体",
-    description: "既能做云端智能体，也能部署到ESP32、无人机等边缘设备。真正实现端云协同的智能体解决方案。",
+    title: "企业级端侧部署",
+    description: "智能体可部署在企业私有服务器或边缘设备，实现完全离线运行。杜绝数据外泄风险，满足最严格的安全要求。",
   },
 ];
 
@@ -39,17 +39,17 @@ export const CapabilitiesSection = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary text-sm font-medium tracking-wider uppercase mb-4 block">
-            Why Q-Atlas AI
+            Enterprise-Grade
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            为什么选择企数星图？
+            企业级智能体开发能力
             <br />
-            <span className="gradient-text">真正从模型层构建的智能体开发能力</span>
+            <span className="gradient-text">告别消费级工具的数据安全隐患</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            市面上的智能体工具（如扣子、Dify）本质上是在调用通用大模型API做简单编排。
-            而企数星图不同——我们拥有<span className="text-foreground font-medium">从数据清洗、模型微调、知识注入到端侧部署</span>的全链路能力。
-            这意味着：您的智能体不是"套壳ChatGPT"，而是真正理解您业务的专属AI。
+            市面上的AI工具（扣子、Dify等）本质是<span className="text-foreground font-medium">消费级产品</span>——数据存储在公有云、无法深度定制、缺乏企业合规保障。
+            企数星图提供真正的<span className="text-foreground font-medium">企业级解决方案</span>：数据100%私有化、模型专属定制、完整合规认证。
+            杜绝企业核心数据泄露风险。
           </p>
         </motion.div>
 

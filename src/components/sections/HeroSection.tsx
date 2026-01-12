@@ -49,9 +49,9 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           >
-            <span className="text-foreground">从底层模型到行业智能体</span>
+            <span className="text-foreground">企业级智能体定制开发</span>
             <br />
-            <span className="gradient-text">我们帮您构建真正懂业务的AI</span>
+            <span className="gradient-text">从底层模型到私有化部署</span>
           </motion.h1>
 
           {/* Sub-headline */}
@@ -61,7 +61,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4"
           >
-            拥有模型微调能力的智能体开发公司 | 不是简单的智能体搭建，是从模型层开始的深度定制
+            专为企业打造的AI智能体 | 数据安全隔离 · 模型私有化 · 深度业务定制
           </motion.p>
           
           <motion.p
@@ -70,7 +70,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="text-base text-muted-foreground/70 max-w-xl mx-auto mb-10"
           >
-            Build AI Agents from Model Layer Up
+            Enterprise-Grade AI Agents, Built for Your Business
           </motion.p>
 
           {/* CTA Buttons */}
