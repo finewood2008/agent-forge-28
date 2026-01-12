@@ -2,28 +2,36 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Layers, GitBranch, Cpu } from "lucide-react";
-
-const capabilities = [
-  {
-    icon: Layers,
-    title: "企业级模型能力",
-    description: "拥有国家大模型备案资质，支持模型私有化部署。您的企业数据100%留在自有环境，符合金融、医疗等行业合规要求。",
-  },
-  {
-    icon: GitBranch,
-    title: "企业级全链路交付",
-    description: "企业数据清洗（脱敏处理）、专属模型微调、企业知识注入、到最终部署。不是简单的Prompt工程，而是深度定制。",
-  },
-  {
-    icon: Cpu,
-    title: "企业级端侧部署",
-    description: "智能体可部署在企业私有服务器或边缘设备，实现完全离线运行。杜绝数据外泄风险，满足最严格的安全要求。",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const CapabilitiesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
+
+  const capabilities = [
+    {
+      icon: Layers,
+      titleZh: "企业级模型能力",
+      titleEn: "Enterprise Model Capabilities",
+      descZh: "拥有国家大模型备案资质，支持模型私有化部署。您的企业数据100%留在自有环境，符合金融、医疗等行业合规要求。",
+      descEn: "National LLM registration certified with private deployment support. Your data stays 100% within your environment, meeting compliance requirements for finance, healthcare, and more.",
+    },
+    {
+      icon: GitBranch,
+      titleZh: "企业级全链路交付",
+      titleEn: "Full-Stack Delivery",
+      descZh: "企业数据清洗（脱敏处理）、专属模型微调、企业知识注入、到最终部署。不是简单的Prompt工程，而是深度定制。",
+      descEn: "From data cleaning and anonymization, to model fine-tuning, knowledge injection, and deployment. Not just prompt engineering—true deep customization.",
+    },
+    {
+      icon: Cpu,
+      titleZh: "企业级端侧部署",
+      titleEn: "Edge Deployment",
+      descZh: "智能体可部署在企业私有服务器或边缘设备，实现完全离线运行。杜绝数据外泄风险，满足最严格的安全要求。",
+      descEn: "Deploy AI agents on private servers or edge devices for fully offline operation. Eliminate data leakage risks and meet the strictest security requirements.",
+    },
+  ];
 
   return (
     <section id="capabilities" className="section-padding relative overflow-hidden">
@@ -42,14 +50,17 @@ export const CapabilitiesSection = () => {
             Enterprise-Grade
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            企业级智能体开发能力
+            {t("企业级智能体开发能力", "Enterprise AI Development Capabilities")}
             <br />
-            <span className="gradient-text">告别消费级工具的数据安全隐患</span>
+            <span className="gradient-text">
+              {t("告别消费级工具的数据安全隐患", "Say Goodbye to Consumer-Grade Security Risks")}
+            </span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            市面上的AI工具（扣子、Dify等）本质是<span className="text-foreground font-medium">消费级产品</span>——数据存储在公有云、无法深度定制、缺乏企业合规保障。
-            企数星图提供真正的<span className="text-foreground font-medium">企业级解决方案</span>：数据100%私有化、模型专属定制、完整合规认证。
-            杜绝企业核心数据泄露风险。
+            {t(
+              "市面上的AI工具（扣子、Dify等）本质是消费级产品——数据存储在公有云、无法深度定制、缺乏企业合规保障。企数星图提供真正的企业级解决方案：数据100%私有化、模型专属定制、完整合规认证。杜绝企业核心数据泄露风险。",
+              "Consumer AI tools store data in public clouds with limited customization and no enterprise compliance. Q-Atlas AI provides true enterprise solutions: 100% private data, custom models, and full compliance certification. Eliminate core data leakage risks."
+            )}
           </p>
         </motion.div>
 
@@ -57,7 +68,7 @@ export const CapabilitiesSection = () => {
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {capabilities.map((cap, index) => (
             <motion.div
-              key={cap.title}
+              key={cap.titleZh}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
@@ -69,9 +80,11 @@ export const CapabilitiesSection = () => {
                   <cap.icon className="w-7 h-7 text-primary" />
                 </div>
 
-                <h3 className="text-xl font-semibold mb-3">{cap.title}</h3>
+                <h3 className="text-xl font-semibold mb-3">
+                  {t(cap.titleZh, cap.titleEn)}
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  {cap.description}
+                  {t(cap.descZh, cap.descEn)}
                 </p>
               </div>
             </motion.div>
