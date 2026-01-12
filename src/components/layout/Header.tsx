@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { openChatWidget } from "@/hooks/use-chat-widget";
 const navItems = [{
   label: "核心能力",
   href: "#capabilities"
@@ -54,7 +55,7 @@ export const Header = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Button variant="hero" size="lg">
+          <Button variant="hero" size="lg" onClick={openChatWidget}>
             立即咨询
           </Button>
         </div>
@@ -77,7 +78,7 @@ export const Header = () => {
             {navItems.map(item => <a key={item.href} href={item.href} className="text-muted-foreground hover:text-foreground transition-colors py-2" onClick={() => setIsMobileMenuOpen(false)}>
                 {item.label}
               </a>)}
-            <Button variant="hero" className="mt-4">
+            <Button variant="hero" className="mt-4" onClick={() => { setIsMobileMenuOpen(false); openChatWidget(); }}>
               立即咨询
             </Button>
           </nav>
