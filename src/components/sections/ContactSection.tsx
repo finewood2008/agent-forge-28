@@ -3,10 +3,13 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { openChatWidget } from "@/hooks/use-chat-widget";
 
 export const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
 
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
@@ -27,21 +30,23 @@ export const ContactSection = () => {
               Get in Touch
             </span>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              开启您的
-              <span className="gradient-text">智能化之旅</span>
+              {t("开启您的", "Start Your")}
+              <span className="gradient-text">{t("智能化之旅", "AI Journey")}</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-10">
-              无论是语音交互升级，还是低空巡检自动化，
-              我们的团队将为您提供专业的定制化咨询与解决方案。
+              {t(
+                "无论是语音交互升级，还是低空巡检自动化，我们的团队将为您提供专业的定制化咨询与解决方案。",
+                "Whether it's voice interaction upgrades or automated drone inspection, our team will provide professional customized consulting and solutions."
+              )}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button variant="hero" size="xl">
-                立即预约演示
+              <Button variant="hero" size="xl" onClick={openChatWidget}>
+                {t("立即预约演示", "Book a Demo")}
                 <ArrowRight className="w-5 h-5" />
               </Button>
               <Button variant="heroOutline" size="xl">
-                下载产品手册
+                {t("下载产品手册", "Download Brochure")}
               </Button>
             </div>
 
@@ -57,7 +62,7 @@ export const ContactSection = () => {
               </div>
               <div className="flex items-center justify-center gap-3 text-muted-foreground">
                 <MapPin className="w-5 h-5 text-primary" />
-                <span>深圳市南山区</span>
+                <span>{t("深圳市南山区", "Nanshan, Shenzhen")}</span>
               </div>
             </div>
           </div>

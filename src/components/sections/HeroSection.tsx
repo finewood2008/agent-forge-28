@@ -3,8 +3,17 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.png";
 import { openChatWidget } from "@/hooks/use-chat-widget";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const HeroSection = () => {
+  const { t } = useLanguage();
+
+  const companies = [
+    { zh: "阿里巴巴", en: "Alibaba" },
+    { zh: "YY直播", en: "YY Live" },
+    { zh: "金山软件", en: "Kingsoft" },
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -39,7 +48,7 @@ export const HeroSection = () => {
           >
             <Shield className="w-4 h-4 text-accent" />
             <span className="text-sm text-muted-foreground">
-              2025年 国家大模型备案认证
+              {t("2025年 国家大模型备案认证", "2025 National LLM Registration Certified")}
             </span>
           </motion.div>
 
@@ -50,9 +59,13 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           >
-            <span className="text-foreground">企业级智能体定制开发</span>
+            <span className="text-foreground">
+              {t("企业级智能体定制开发", "Enterprise AI Agent Development")}
+            </span>
             <br />
-            <span className="gradient-text">从底层模型到私有化部署</span>
+            <span className="gradient-text">
+              {t("从底层模型到私有化部署", "From Foundation Models to Private Deployment")}
+            </span>
           </motion.h1>
 
           {/* Sub-headline */}
@@ -62,7 +75,10 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4"
           >
-            专为企业打造的AI智能体 | 数据安全隔离 · 模型私有化 · 深度业务定制
+            {t(
+              "专为企业打造的AI智能体 | 数据安全隔离 · 模型私有化 · 深度业务定制",
+              "Enterprise AI Agents | Data Security · Private Deployment · Deep Customization"
+            )}
           </motion.p>
           
           <motion.p
@@ -71,7 +87,10 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="text-base text-muted-foreground/70 max-w-xl mx-auto mb-10"
           >
-            Enterprise-Grade AI Agents, Built for Your Business
+            {t(
+              "Enterprise-Grade AI Agents, Built for Your Business",
+              "Secure, Compliant, and Tailored to Your Industry"
+            )}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -83,10 +102,10 @@ export const HeroSection = () => {
           >
             <Button variant="hero" size="xl" onClick={openChatWidget}>
               <Sparkles className="w-5 h-5" />
-              聊聊您的智能体需求
+              {t("聊聊您的智能体需求", "Discuss Your AI Needs")}
             </Button>
             <Button variant="heroOutline" size="xl">
-              查看案例
+              {t("查看案例", "View Case Studies")}
               <ArrowRight className="w-5 h-5" />
             </Button>
           </motion.div>
@@ -98,11 +117,13 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-16 pt-8 border-t border-border/30"
           >
-            <p className="text-sm text-muted-foreground mb-6">核心团队来自</p>
+            <p className="text-sm text-muted-foreground mb-6">
+              {t("核心团队来自", "Core Team From")}
+            </p>
             <div className="flex items-center justify-center gap-8 md:gap-16 opacity-60">
-              {["阿里巴巴", "YY直播", "金山软件"].map((company) => (
-                <span key={company} className="text-lg md:text-xl font-semibold text-muted-foreground">
-                  {company}
+              {companies.map((company) => (
+                <span key={company.zh} className="text-lg md:text-xl font-semibold text-muted-foreground">
+                  {t(company.zh, company.en)}
                 </span>
               ))}
             </div>
