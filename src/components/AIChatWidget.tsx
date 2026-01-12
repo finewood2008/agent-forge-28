@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { MessageCircle, X, Send, Bot, User, Loader2, FileText, ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { OPEN_CHAT_EVENT } from "@/hooks/use-chat-widget";
 
 type Message = {
   role: "user" | "assistant";
@@ -53,6 +54,15 @@ export const AIChatWidget = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  // Listen for global open chat event
+  useEffect(() => {
+    const handleOpenChat = () => {
+      setIsOpen(true);
+    };
+    window.addEventListener(OPEN_CHAT_EVENT, handleOpenChat);
+    return () => window.removeEventListener(OPEN_CHAT_EVENT, handleOpenChat);
+  }, []);
 
   const handleFormChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));

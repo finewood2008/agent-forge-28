@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Sparkles } from "lucide-react";
 import heroBg from "@/assets/hero-bg.png";
+import { openChatWidget } from "@/hooks/use-chat-widget";
 
 export const HeroSection = () => {
   return (
@@ -80,7 +81,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button variant="hero" size="xl">
+            <Button variant="hero" size="xl" onClick={openChatWidget}>
               <Sparkles className="w-5 h-5" />
               聊聊您的智能体需求
             </Button>
