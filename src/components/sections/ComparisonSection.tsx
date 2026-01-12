@@ -90,7 +90,7 @@ const comparisonData = [
 
 export const ComparisonSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section id="comparison" className="py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/30 to-background" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px]" />
