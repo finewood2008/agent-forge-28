@@ -13,8 +13,7 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { label: "核心能力", href: "#capabilities" },
-  { label: "方案对比", href: "#comparison" },
+  { label: "企业级智能体", href: "#capabilities" },
   { label: "解决方案", href: "#solutions" },
   { label: "关于我们", href: "#about" },
   { label: "新闻中心", href: "/news", isPage: true },
@@ -101,12 +100,6 @@ export const Header = () => {
           {navItems.map((item) => renderNavLink(item))}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
-          <Button variant="hero" size="lg" onClick={openChatWidget}>
-            立即咨询
-          </Button>
-        </div>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -126,16 +119,6 @@ export const Header = () => {
         >
           <nav className="flex flex-col gap-4">
             {navItems.map((item) => renderNavLink(item, true))}
-            <Button
-              variant="hero"
-              className="mt-4"
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                openChatWidget();
-              }}
-            >
-              立即咨询
-            </Button>
           </nav>
         </motion.div>
       )}
