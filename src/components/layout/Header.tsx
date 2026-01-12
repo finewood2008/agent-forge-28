@@ -1,29 +1,30 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
-import { openChatWidget } from "@/hooks/use-chat-widget";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type NavItem = {
-  label: string;
+  labelZh: string;
+  labelEn: string;
   href: string;
   isPage?: boolean;
 };
 
 const navItems: NavItem[] = [
-  { label: "企业级智能体", href: "#capabilities" },
-  { label: "解决方案", href: "#solutions" },
-  { label: "关于我们", href: "#about" },
-  { label: "新闻中心", href: "/news", isPage: true },
-  { label: "联系我们", href: "#contact" },
+  { labelZh: "企业级智能体", labelEn: "Enterprise AI", href: "#capabilities" },
+  { labelZh: "解决方案", labelEn: "Solutions", href: "#solutions" },
+  { labelZh: "关于我们", labelEn: "About Us", href: "#about" },
+  { labelZh: "新闻中心", labelEn: "News", href: "/news", isPage: true },
+  { labelZh: "联系我们", labelEn: "Contact", href: "#contact" },
 ];
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,16 +37,21 @@ export const Header = () => {
   const handleNavClick = (item: NavItem) => {
     setIsMobileMenuOpen(false);
     
-    // If it's a hash link and we're not on the home page, navigate to home first
     if (!item.isPage && location.pathname !== "/") {
       window.location.href = "/" + item.href;
     }
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === "zh" ? "en" : "zh");
   };
 
   const renderNavLink = (item: NavItem, isMobile = false) => {
     const className = isMobile
       ? "text-muted-foreground hover:text-foreground transition-colors py-2"
       : "text-muted-foreground hover:text-foreground transition-colors duration-200";
+
+    const label = language === "zh" ? item.labelZh : item.labelEn;
 
     if (item.isPage) {
       return (
@@ -55,7 +61,7 @@ export const Header = () => {
           className={className}
           onClick={() => setIsMobileMenuOpen(false)}
         >
-          {item.label}
+          {label}
         </Link>
       );
     }
@@ -67,7 +73,7 @@ export const Header = () => {
         className={className}
         onClick={() => handleNavClick(item)}
       >
-        {item.label}
+        {label}
       </a>
     );
   };
@@ -87,10 +93,10 @@ export const Header = () => {
           <img src={logo} alt="企数星图" className="w-10 h-10 object-contain" />
           <div className="flex flex-col">
             <span className="text-xl font-bold text-foreground leading-tight">
-              企数星图
+              {t("企数星图", "Q-Atlas AI")}
             </span>
             <span className="text-muted-foreground text-center text-base font-sans font-medium">
-              Q-Atlas AI
+              {t("Q-Atlas AI", "Enterprise AI Solutions")}
             </span>
           </div>
         </Link>
@@ -100,14 +106,26 @@ export const Header = () => {
           {navItems.map((item) => renderNavLink(item))}
         </nav>
 
+        {/* Language Toggle & Mobile Menu */}
+        <div className="flex items-center gap-4">
+          {/* Language Toggle */}
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass text-sm text-muted-foreground hover:text-foreground transition-colors"
+            title={t("切换到英文", "Switch to Chinese")}
+          >
+            <Globe className="w-4 h-4" />
+            <span className="hidden sm:inline">{language === "zh" ? "EN" : "中"}</span>
+          </button>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {/* Mobile Menu Toggle */}
+          <button
+            className="md:hidden text-foreground"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
