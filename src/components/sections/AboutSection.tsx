@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Award, Users, Zap, Calendar } from "lucide-react";
+import { Award, Users, Zap, Calendar, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import certificationImg from "@/assets/certification.jpg";
 
 export const AboutSection = () => {
   const ref = useRef(null);
@@ -60,19 +61,48 @@ export const AboutSection = () => {
             {t("关于", "About")}
             <span className="gradient-text">{t("企数星图", "Q-Atlas AI")}</span>
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            {t(
-              "企数星图是一家专注于行业智能体开发的AI公司。我们的团队来自阿里、YY、金山等互联网大厂，拥有丰富的AI模型开发与产品落地经验。2025年，我们获得国家大模型备案认证，具备模型私有化部署资质。",
-              "Q-Atlas AI is an AI company focused on industry-specific agent development. Our team comes from leading tech companies like Alibaba, YY, and Kingsoft, with extensive AI model development and product deployment experience. In 2025, we obtained national LLM registration certification with private deployment qualifications."
-            )}
-          </p>
-          <p className="text-muted-foreground text-lg leading-relaxed mt-4">
-            {t(
-              "我们的使命：帮助每一个想要拥有专属AI智能体的企业，从底层模型开始构建真正懂业务的智能体。",
-              "Our Mission: Help every enterprise that wants its own AI agent build truly business-aware agents from the foundation model up."
-            )}
-          </p>
         </motion.div>
+
+        {/* About Content with Certification Image */}
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <p className="text-muted-foreground text-lg leading-relaxed mb-4">
+              {t(
+                "企数星图是一家专注于行业智能体开发的AI公司。我们的团队来自阿里、YY、金山等互联网大厂，拥有丰富的AI模型开发与产品落地经验。2025年，我们获得国家大模型备案认证，具备模型私有化部署资质。",
+                "Q-Atlas AI is an AI company focused on industry-specific agent development. Our team comes from leading tech companies like Alibaba, YY, and Kingsoft, with extensive AI model development and product deployment experience. In 2025, we obtained national LLM registration certification with private deployment qualifications."
+              )}
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              {t(
+                "我们的使命：帮助每一个想要拥有专属AI智能体的企业，从底层模型开始构建真正懂业务的智能体。",
+                "Our Mission: Help every enterprise that wants its own AI agent build truly business-aware agents from the foundation model up."
+              )}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="relative"
+          >
+            <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-card">
+              <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-primary/90 text-primary-foreground px-3 py-1.5 rounded-full text-sm font-medium">
+                <ShieldCheck className="w-4 h-4" />
+                {t("国家级认证", "National Certification")}
+              </div>
+              <img
+                src={certificationImg}
+                alt={t("生成式人工智能服务备案证明", "Generative AI Service Registration Certificate")}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </motion.div>
+        </div>
 
         {/* Stats */}
         <div className="grid md:grid-cols-3 gap-6 mb-20">
