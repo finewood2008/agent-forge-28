@@ -51,18 +51,24 @@ export const ContactSection = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="grid md:grid-cols-3 gap-6 pt-8 border-t border-border/50">
+            <div className="grid md:grid-cols-2 gap-6 pt-8 border-t border-border/50">
               <div className="flex items-center justify-center gap-3 text-muted-foreground">
-                <Mail className="w-5 h-5 text-primary" />
+                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <span>contact@qishu.ai</span>
               </div>
               <div className="flex items-center justify-center gap-3 text-muted-foreground">
-                <Phone className="w-5 h-5 text-primary" />
+                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <span>400-888-8888</span>
               </div>
-              <div className="flex items-center justify-center gap-3 text-muted-foreground">
-                <MapPin className="w-5 h-5 text-primary" />
-                <span>{t("深圳市南山区", "Nanshan, Shenzhen")}</span>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6 pt-6">
+              <div className="flex items-start justify-center gap-3 text-muted-foreground text-sm">
+                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-left">{t("深圳地址：广东省深圳市南山区粤海街道高新区社区高新南环路26号深圳湾科技生态园5栋A1319", "Shenzhen: Building 5, A1319, Shenzhen Bay Eco-Tech Park, No.26 Gaoxin South Ring Road, Nanshan District, Shenzhen")}</span>
+              </div>
+              <div className="flex items-start justify-center gap-3 text-muted-foreground text-sm">
+                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-left">{t("珠海地址：珠海市高新区唐家湾镇天星五路159号4栋402室", "Zhuhai: Room 402, Building 4, No.159 Tianxing 5th Road, Tangjiawan Town, High-tech Zone, Zhuhai")}</span>
               </div>
             </div>
           </div>
