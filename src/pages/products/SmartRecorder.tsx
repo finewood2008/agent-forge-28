@@ -533,23 +533,23 @@ export default function SmartRecorder() {
       </section>
 
       {/* APP Smart Features */}
-      <section className="py-12 bg-secondary/30">
-        <div className="container">
+      <section className="py-8 md:py-12 bg-secondary/30">
+        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="text-center mb-5 md:mb-8"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-1 md:mb-2">
               {t("APP智能功能", "Smart APP Features")}
             </h2>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs md:text-sm text-muted-foreground">
               {t("配套APP提供强大的AI处理能力", "Powerful AI processing with companion APP")}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
             {appFeatures.map((feature, index) => (
               <motion.div
                 key={feature.titleZh}
@@ -557,15 +557,15 @@ export default function SmartRecorder() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.03 }}
-                className="p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors"
+                className="p-2.5 md:p-4 rounded-lg md:rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors"
               >
-                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-                  <feature.icon className="w-4.5 h-4.5 text-primary" />
+                <div className="w-7 h-7 md:w-9 md:h-9 rounded-md md:rounded-lg bg-primary/10 flex items-center justify-center mb-2 md:mb-3">
+                  <feature.icon className="w-3.5 h-3.5 md:w-4.5 md:h-4.5 text-primary" />
                 </div>
-                <h3 className="text-sm font-semibold mb-1">
+                <h3 className="text-xs md:text-sm font-semibold mb-0.5 md:mb-1">
                   {t(feature.titleZh, feature.titleEn)}
                 </h3>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-[10px] md:text-xs text-muted-foreground line-clamp-2 md:line-clamp-none">
                   {t(feature.descZh, feature.descEn)}
                 </p>
               </motion.div>
@@ -575,20 +575,20 @@ export default function SmartRecorder() {
       </section>
 
       {/* Application Scenarios */}
-      <section className="py-12">
-        <div className="container">
+      <section className="py-8 md:py-12">
+        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="text-center mb-5 md:mb-8"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-1 md:mb-2">
               {t("应用场景", "Application Scenarios")}
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
             {scenarios.map((scenario, index) => (
               <motion.div
                 key={scenario.titleZh}
@@ -596,13 +596,13 @@ export default function SmartRecorder() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
+                className="p-3 md:p-4 rounded-lg md:rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
               >
-                <Headphones className="w-6 h-6 text-primary mb-2" />
-                <h3 className="text-sm font-semibold mb-1">
+                <Headphones className="w-5 h-5 md:w-6 md:h-6 text-primary mb-1.5 md:mb-2" />
+                <h3 className="text-xs md:text-sm font-semibold mb-0.5 md:mb-1">
                   {t(scenario.titleZh, scenario.titleEn)}
                 </h3>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-[10px] md:text-xs text-muted-foreground line-clamp-2 md:line-clamp-none">
                   {t(scenario.descZh, scenario.descEn)}
                 </p>
               </motion.div>
@@ -612,27 +612,27 @@ export default function SmartRecorder() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
-        <div className="container">
+      <section className="py-8 md:py-12 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center max-w-xl mx-auto"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+            <h2 className="text-lg md:text-2xl lg:text-3xl font-bold mb-2 md:mb-3">
               {t("开启智能录音之旅", "Start Your Smart Recording Journey")}
             </h2>
-            <p className="text-sm text-muted-foreground mb-6">
+            <p className="text-xs md:text-sm text-muted-foreground mb-4 md:mb-6 px-2">
               {t(
                 "联系我们，为您的团队定制专属的智能录音解决方案",
                 "Contact us to customize smart recording solutions for your team"
               )}
             </p>
-            <Button variant="hero" size="default" asChild>
+            <Button variant="hero" size="sm" className="md:px-6 md:py-2.5" asChild>
               <Link to="/#contact">
                 {t("立即咨询", "Contact Us Now")}
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
               </Link>
             </Button>
           </motion.div>
