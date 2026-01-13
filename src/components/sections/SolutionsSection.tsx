@@ -198,16 +198,16 @@ export const SolutionsSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="text-center max-w-3xl mx-auto mb-8"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-accent/10 text-accent mb-6">
+          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-accent/10 text-accent mb-4">
             {t("定制开发", "Custom Development")}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {t("企业级", "Enterprise")}
             <span className="gradient-text">{t("Agent定制开发", " Agent Development")}</span>
           </h2>
-          <p className="text-muted-foreground mb-8">
+          <p className="text-muted-foreground text-sm mb-6">
             {t(
               "基于核心技术能力，为企业提供定制化AI智能体开发服务",
               "Customized AI agent development services based on core technical capabilities"
@@ -338,7 +338,7 @@ export const SolutionsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12"
+          className="text-center mt-8"
         >
           <p className="text-muted-foreground mb-4">
             {t(
