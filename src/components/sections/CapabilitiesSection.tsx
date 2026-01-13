@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Layers, GitBranch, Cpu } from "lucide-react";
+import xmakehubDemo from "@/assets/xmakehub-demo.mp4";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const CapabilitiesSection = () => {
@@ -62,6 +63,56 @@ export const CapabilitiesSection = () => {
               "Consumer AI tools store data in public clouds with limited customization and no enterprise compliance. Q-Atlas AI provides true enterprise solutions: 100% private data, custom models, and full compliance certification. Eliminate core data leakage risks."
             )}
           </p>
+        </motion.div>
+
+        {/* Platform Demo Video */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-5xl mx-auto mb-16"
+        >
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-3">
+              {t("自研企业级智能体开发平台 — XMakeHub", "Self-developed Enterprise AI Agent Platform — XMakeHub")}
+            </h3>
+            <p className="text-muted-foreground">
+              {t(
+                "从大模型微调到智能体部署的全流程管理，展示我们在AI领域的核心技术能力",
+                "Full-lifecycle management from LLM fine-tuning to agent deployment, demonstrating our core AI capabilities"
+              )}
+            </p>
+          </div>
+          
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/30 glow-primary">
+            <video 
+              className="w-full aspect-video object-cover"
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+            >
+              <source src={xmakehubDemo} type="video/mp4" />
+            </video>
+          </div>
+          
+          {/* Tech Capability Tags */}
+          <div className="flex flex-wrap justify-center gap-3 mt-6">
+            {[
+              { zh: "大模型微调", en: "LLM Fine-tuning" },
+              { zh: "Agent开发", en: "Agent Development" },
+              { zh: "知识库管理", en: "Knowledge Base" },
+              { zh: "工作流编排", en: "Workflow Orchestration" },
+              { zh: "私有化部署", en: "Private Deployment" },
+            ].map((tag) => (
+              <span 
+                key={tag.zh}
+                className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20"
+              >
+                {t(tag.zh, tag.en)}
+              </span>
+            ))}
+          </div>
         </motion.div>
 
         {/* Capability Cards */}
