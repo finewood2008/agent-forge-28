@@ -199,37 +199,45 @@ export const CoreProductSection = () => {
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               className="group"
             >
-              <div className="h-full gradient-border rounded-2xl overflow-hidden bg-card hover:bg-card/80 transition-all duration-300">
-                <div className="p-8">
-                  {/* Icon */}
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <product.icon className="w-8 h-8 text-primary" />
-                  </div>
+              <a href={product.id === "recorder" ? "/products/smart-recorder" : product.id === "conference" ? "/products/meeting-robot" : "/products/private-cloud"} className="block h-full">
+                <div className="h-full gradient-border rounded-2xl overflow-hidden bg-card hover:bg-card/80 transition-all duration-300">
+                  <div className="p-8">
+                    {/* Icon */}
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <product.icon className="w-8 h-8 text-primary" />
+                    </div>
 
-                  {/* Content */}
-                  <h3 className="text-xl font-bold mb-2">
-                    {t(product.titleZh, product.titleEn)}
-                  </h3>
-                  <p className="text-sm text-primary/80 mb-4">
-                    {t(product.subtitleZh, product.subtitleEn)}
-                  </p>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                    {t(product.descZh, product.descEn)}
-                  </p>
+                    {/* Content */}
+                    <h3 className="text-xl font-bold mb-2">
+                      {t(product.titleZh, product.titleEn)}
+                    </h3>
+                    <p className="text-sm text-primary/80 mb-4">
+                      {t(product.subtitleZh, product.subtitleEn)}
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                      {t(product.descZh, product.descEn)}
+                    </p>
 
-                  {/* Features */}
-                  <div className="space-y-3">
-                    {product.features.map((feature) => (
-                      <div key={feature.textZh} className="flex items-center gap-3">
-                        <feature.icon className="w-4 h-4 text-primary shrink-0" />
-                        <span className="text-sm text-muted-foreground">
-                          {t(feature.textZh, feature.textEn)}
-                        </span>
-                      </div>
-                    ))}
+                    {/* Features */}
+                    <div className="space-y-3 mb-6">
+                      {product.features.map((feature) => (
+                        <div key={feature.textZh} className="flex items-center gap-3">
+                          <feature.icon className="w-4 h-4 text-primary shrink-0" />
+                          <span className="text-sm text-muted-foreground">
+                            {t(feature.textZh, feature.textEn)}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* CTA */}
+                    <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
+                      {t("了解详情", "Learn More")}
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </motion.div>
           ))}
         </div>

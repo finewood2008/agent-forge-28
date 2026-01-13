@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Menu, X, Globe } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -10,10 +10,22 @@ type NavItem = {
   labelEn: string;
   href: string;
   isPage?: boolean;
+  hasDropdown?: boolean;
+  dropdownItems?: { labelZh: string; labelEn: string; href: string }[];
 };
 
 const navItems: NavItem[] = [
-  { labelZh: "核心产品", labelEn: "Core Products", href: "#core-products" },
+  { 
+    labelZh: "核心产品", 
+    labelEn: "Core Products", 
+    href: "#core-products",
+    hasDropdown: true,
+    dropdownItems: [
+      { labelZh: "智能录音设备", labelEn: "Smart Recorder", href: "/products/smart-recorder" },
+      { labelZh: "会议机器人", labelEn: "Meeting Robot", href: "/products/meeting-robot" },
+      { labelZh: "私有云算力平台", labelEn: "Private Cloud", href: "/products/private-cloud" },
+    ]
+  },
   { labelZh: "定制开发", labelEn: "Custom Development", href: "#custom-development" },
   { labelZh: "关于我们", labelEn: "About Us", href: "#about" },
   { labelZh: "新闻中心", labelEn: "News", href: "/news", isPage: true },
@@ -23,6 +35,7 @@ const navItems: NavItem[] = [
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
   const { language, setLanguage, t } = useLanguage();
 
@@ -52,6 +65,66 @@ export const Header = () => {
       : "text-muted-foreground hover:text-foreground transition-colors duration-200";
 
     const label = language === "zh" ? item.labelZh : item.labelEn;
+
+    // Desktop with dropdown
+    if (item.hasDropdown && !isMobile) {
+      return (
+        <div 
+          key={item.href}
+          className="relative"
+          onMouseEnter={() => setActiveDropdown(item.href)}
+          onMouseLeave={() => setActiveDropdown(null)}
+        >
+          <button className={`${className} flex items-center gap-1`}>
+            {label}
+            <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === item.href ? 'rotate-180' : ''}`} />
+          </button>
+          
+          <AnimatePresence>
+            {activeDropdown === item.href && item.dropdownItems && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-full left-0 mt-2 w-48 rounded-xl bg-card border border-border shadow-xl z-50 overflow-hidden"
+              >
+                {item.dropdownItems.map((dropdownItem) => (
+                  <Link
+                    key={dropdownItem.href}
+                    to={dropdownItem.href}
+                    className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                  >
+                    {language === "zh" ? dropdownItem.labelZh : dropdownItem.labelEn}
+                  </Link>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      );
+    }
+
+    // Mobile with dropdown
+    if (item.hasDropdown && isMobile) {
+      return (
+        <div key={item.href} className="space-y-2">
+          <span className={className}>{label}</span>
+          <div className="pl-4 space-y-2">
+            {item.dropdownItems?.map((dropdownItem) => (
+              <Link
+                key={dropdownItem.href}
+                to={dropdownItem.href}
+                className="block text-sm text-muted-foreground hover:text-foreground py-1"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {language === "zh" ? dropdownItem.labelZh : dropdownItem.labelEn}
+              </Link>
+            ))}
+          </div>
+        </div>
+      );
+    }
 
     if (item.isPage) {
       return (
