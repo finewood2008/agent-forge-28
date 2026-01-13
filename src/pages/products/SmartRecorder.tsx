@@ -19,7 +19,17 @@ import {
   Headphones,
   CreditCard,
   BadgeCheck,
-  Award
+  Award,
+  Battery,
+  Wifi,
+  Bluetooth,
+  Volume2,
+  Languages,
+  Brain,
+  MessageSquare,
+  Smartphone,
+  Clock,
+  Layers
 } from "lucide-react";
 
 import recorderCard from "@/assets/recorder-card.png";
@@ -31,6 +41,75 @@ export default function SmartRecorder() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { t } = useLanguage();
 
+  // 底层技术优势
+  const techAdvantages = [
+    {
+      icon: Layers,
+      titleZh: "超薄卡片设计",
+      titleEn: "Ultra-thin Card Design",
+      descZh: "85×53mm 尺寸，仅 2.89mm 厚度，比信用卡还薄，轻松放入钱包或口袋",
+      descEn: "85×53mm size, only 2.89mm thick, thinner than a credit card",
+      highlight: "2.89mm"
+    },
+    {
+      icon: Mic,
+      titleZh: "三麦克风阵列",
+      titleEn: "Triple Microphone Array",
+      descZh: "2个硅麦 + 1个骨纹麦，360°全向拾音，精准捕捉每一个声音细节",
+      descEn: "2 silicon mics + 1 bone conduction mic, 360° omnidirectional pickup",
+      highlight: "360°"
+    },
+    {
+      icon: Wifi,
+      titleZh: "双模快传技术",
+      titleEn: "Dual-mode Fast Transfer",
+      descZh: "蓝牙 V5.3 + 双频 WIFI，WIFI 传输速度高达 24Mbps，秒传录音文件",
+      descEn: "Bluetooth V5.3 + Dual-band WIFI, up to 24Mbps transfer speed",
+      highlight: "24Mbps"
+    },
+    {
+      icon: Battery,
+      titleZh: "超长续航能力",
+      titleEn: "Extended Battery Life",
+      descZh: "独创低功耗录音技术，连续录音24小时，待机长达1年",
+      descEn: "Proprietary low-power technology, 24-hour recording, 1-year standby",
+      highlight: "1年待机"
+    },
+    {
+      icon: Zap,
+      titleZh: "无线充电支持",
+      titleEn: "Wireless Charging",
+      descZh: "支持 Qi 标准无线充电，兼容手机反向充电，随时随地补充电量",
+      descEn: "Qi standard wireless charging, compatible with phone reverse charging",
+      highlight: "Qi标准"
+    },
+    {
+      icon: Smartphone,
+      titleZh: "磁吸便捷设计",
+      titleEn: "Magnetic Attachment",
+      descZh: "内置磁吸模块，可牢固吸附手机背壳，随身携带不易丢失",
+      descEn: "Built-in magnetic module for secure phone attachment",
+      highlight: "磁吸"
+    },
+  ];
+
+  // 产品规格参数
+  const specifications = [
+    { labelZh: "产品尺寸", labelEn: "Dimensions", valueZh: "85 × 53 × 2.89 mm", valueEn: "85 × 53 × 2.89 mm" },
+    { labelZh: "麦克风配置", labelEn: "Microphone", valueZh: "2个硅麦 + 1个骨纹麦", valueEn: "2 Silicon + 1 Bone Mic" },
+    { labelZh: "存储容量", labelEn: "Storage", valueZh: "32GB / 64GB 可选", valueEn: "32GB / 64GB Optional" },
+    { labelZh: "蓝牙规格", labelEn: "Bluetooth", valueZh: "V5.3 BLE", valueEn: "V5.3 BLE" },
+    { labelZh: "WIFI规格", labelEn: "WIFI", valueZh: "双频 2.4GHz / 5GHz", valueEn: "Dual-band 2.4/5GHz" },
+    { labelZh: "传输速度", labelEn: "Transfer Speed", valueZh: "最高 24Mbps", valueEn: "Up to 24Mbps" },
+    { labelZh: "电池容量", labelEn: "Battery", valueZh: "400mAh 聚合物锂电池", valueEn: "400mAh Li-polymer" },
+    { labelZh: "连续录音", labelEn: "Recording Time", valueZh: "约 24 小时", valueEn: "~24 Hours" },
+    { labelZh: "待机时长", labelEn: "Standby", valueZh: "约 1 年", valueEn: "~1 Year" },
+    { labelZh: "充电方式", labelEn: "Charging", valueZh: "无线充电 / Type-C", valueEn: "Wireless / Type-C" },
+    { labelZh: "拾音距离", labelEn: "Pickup Range", valueZh: "5 米有效距离", valueEn: "5m Effective Range" },
+    { labelZh: "产品认证", labelEn: "Certifications", valueZh: "FCC / CE / RoHS", valueEn: "FCC / CE / RoHS" },
+  ];
+
+  // 产品形态
   const products = [
     {
       id: "card",
@@ -38,14 +117,14 @@ export default function SmartRecorder() {
       image: recorderCard,
       titleZh: "智能录音卡",
       titleEn: "Smart Recording Card",
-      subtitleZh: "卡片式便携设计",
-      subtitleEn: "Card-style Portable Design",
-      descZh: "信用卡大小的超薄设计，便于随身携带。适合外勤销售、商务洽谈等移动场景，随时记录关键对话。",
-      descEn: "Credit card-sized ultra-thin design for easy portability. Perfect for field sales and business meetings.",
-      featuresZh: ["超薄便携", "一键录音", "8小时续航", "降噪技术"],
-      featuresEn: ["Ultra-thin & Portable", "One-click Recording", "8-hour Battery", "Noise Reduction"],
-      scenariosZh: ["外勤拜访", "客户洽谈", "现场调研"],
-      scenariosEn: ["Field Visits", "Client Meetings", "On-site Research"],
+      subtitleZh: "2.89mm 超薄卡片",
+      subtitleEn: "2.89mm Ultra-thin Card",
+      descZh: "基于2.89mm超薄卡片设计，比信用卡还薄。内置磁吸模块可牢固吸附手机背壳，支持无线充电，一键录音/标记，智能声感启停，是移动办公的理想伴侣。",
+      descEn: "Based on 2.89mm ultra-thin design, thinner than a credit card. Built-in magnetic module for phone attachment, wireless charging support, one-click recording.",
+      featuresZh: ["2.89mm超薄", "磁吸设计", "无线充电", "声感启停"],
+      featuresEn: ["2.89mm Thin", "Magnetic", "Wireless Charge", "Voice Activate"],
+      scenariosZh: ["外勤拜访", "客户洽谈", "移动办公"],
+      scenariosEn: ["Field Visits", "Client Meetings", "Mobile Office"],
     },
     {
       id: "badge",
@@ -54,11 +133,11 @@ export default function SmartRecorder() {
       titleZh: "智能录音工牌",
       titleEn: "Smart Recording Badge",
       subtitleZh: "企业标准配置",
-      subtitleEn: "Enterprise Standard Equipment",
-      descZh: "企业统一配发的智能工牌，员工日常佩戴即可自动记录工作中的语音交互，是销售团队管理的标配设备。",
-      descEn: "Enterprise-issued smart badge for automatic recording during daily work. Standard equipment for sales team management.",
-      featuresZh: ["工牌一体化", "自动录音", "12小时续航", "多人识别"],
-      featuresEn: ["Badge Integration", "Auto Recording", "12-hour Battery", "Multi-speaker ID"],
+      subtitleEn: "Enterprise Standard",
+      descZh: "将超薄录音卡嵌入企业工牌内，员工日常佩戴即可自动记录工作中的语音交互。支持多人角色识别，是销售团队管理和客服质检的标配设备。",
+      descEn: "Ultra-thin recording card embedded in enterprise badge. Auto-records voice interactions during daily work. Supports multi-speaker recognition.",
+      featuresZh: ["工牌一体化", "自动录音", "多人识别", "24小时续航"],
+      featuresEn: ["Badge Integrated", "Auto Recording", "Multi-speaker", "24h Battery"],
       scenariosZh: ["零售门店", "客服中心", "销售团队"],
       scenariosEn: ["Retail Stores", "Call Centers", "Sales Teams"],
     },
@@ -69,61 +148,77 @@ export default function SmartRecorder() {
       titleZh: "智能胸牌",
       titleEn: "Smart Chest Badge",
       subtitleZh: "高端商务场景",
-      subtitleEn: "Premium Business Scenarios",
-      descZh: "精致的胸牌设计，适用于高端商务场景。磁吸佩戴，优雅便捷，支持多场景自动切换录音模式。",
-      descEn: "Elegant chest badge design for premium business scenarios. Magnetic attachment, elegant and convenient.",
-      featuresZh: ["磁吸设计", "智能模式切换", "24小时续航", "实时同步"],
-      featuresEn: ["Magnetic Design", "Smart Mode Switch", "24-hour Battery", "Real-time Sync"],
+      subtitleEn: "Premium Business",
+      descZh: "精致的磁吸胸牌设计，适用于高端商务场景。优雅便捷的佩戴方式，支持多场景自动切换录音模式，会议与通话场景智能识别。",
+      descEn: "Elegant magnetic chest badge design for premium business scenarios. Smart scenario recognition for meetings and calls.",
+      featuresZh: ["磁吸佩戴", "场景识别", "实时同步", "双频快传"],
+      featuresEn: ["Magnetic Wear", "Scene Detection", "Real-time Sync", "Dual-band"],
       scenariosZh: ["高管会议", "重要商务", "培训考核"],
-      scenariosEn: ["Executive Meetings", "Important Business", "Training Assessment"],
+      scenariosEn: ["Executive Meetings", "Important Business", "Training"],
     },
   ];
 
-  const coreFeatures = [
+  // APP智能功能
+  const appFeatures = [
     {
-      icon: Mic,
-      titleZh: "高清录音采集",
-      titleEn: "HD Audio Capture",
-      descZh: "专业级麦克风阵列，360°全向拾音，清晰捕捉每一个声音细节",
-      descEn: "Professional microphone array with 360° omnidirectional pickup",
+      icon: Languages,
+      titleZh: "AI语音转写",
+      titleEn: "AI Transcription",
+      descZh: "支持130+种语言，通过AI大模型将语音精准转写成文字",
+      descEn: "130+ languages, AI-powered accurate speech-to-text",
     },
     {
       icon: Zap,
       titleZh: "实时语音转写",
       titleEn: "Real-time Transcription",
-      descZh: "边录边转，语音秒变文字，支持多语言实时转写",
-      descEn: "Simultaneous recording and transcription with multi-language support",
-    },
-    {
-      icon: BarChart3,
-      titleZh: "行为数据分析",
-      titleEn: "Behavior Analytics",
-      descZh: "智能分析对话内容，自动生成沟通质量报告和改进建议",
-      descEn: "Smart analysis of conversations with automatic quality reports",
-    },
-    {
-      icon: FileText,
-      titleZh: "智能报告生成",
-      titleEn: "Smart Report Generation",
-      descZh: "自动提取关键信息，生成结构化的工作日志和客户画像",
-      descEn: "Automatic extraction of key info for structured work logs",
-    },
-    {
-      icon: Shield,
-      titleZh: "数据安全保障",
-      titleEn: "Data Security",
-      descZh: "端到端加密传输，数据存储在企业私有云，确保信息安全",
-      descEn: "End-to-end encryption with private cloud storage",
+      descZh: "蓝牙实时接收音频，边录边转，即刻呈现文字结果",
+      descEn: "Bluetooth real-time audio, simultaneous transcription",
     },
     {
       icon: Users,
-      titleZh: "多人协作管理",
-      titleEn: "Team Collaboration",
-      descZh: "支持团队成员录音共享、权限管理和统一后台管理",
-      descEn: "Team recording sharing, permission management, and unified admin",
+      titleZh: "角色区分",
+      titleEn: "Speaker Identification",
+      descZh: "支持3-5人对话角色识别，清晰区分发言人",
+      descEn: "3-5 speaker recognition, clear speaker differentiation",
+    },
+    {
+      icon: FileText,
+      titleZh: "智能总结模板",
+      titleEn: "Summary Templates",
+      descZh: "通用、会议、咨询、通话、演讲等多种专业模板",
+      descEn: "Various templates: general, meeting, consulting, call, speech",
+    },
+    {
+      icon: Brain,
+      titleZh: "思维导图生成",
+      titleEn: "Mind Map Generation",
+      descZh: "自动生成内容脉络，可视化展现逻辑结构",
+      descEn: "Auto-generate content structure with visual mind maps",
+    },
+    {
+      icon: MessageSquare,
+      titleZh: "AI问答分析",
+      titleEn: "AI Q&A Analysis",
+      descZh: "单文件深度剖析，多文件协同分析，智能提取洞察",
+      descEn: "Deep single-file analysis, multi-file collaborative insights",
+    },
+    {
+      icon: Languages,
+      titleZh: "实时翻译",
+      titleEn: "Real-time Translation",
+      descZh: "多语言互译，具备实时纠错功能，跨语言沟通无障碍",
+      descEn: "Multi-language translation with real-time correction",
+    },
+    {
+      icon: Clock,
+      titleZh: "智能声感启停",
+      titleEn: "Voice-activated Control",
+      descZh: "有声录音/无声暂停，智能节省存储空间",
+      descEn: "Record on voice, pause on silence, save storage smartly",
     },
   ];
 
+  // 应用场景
   const scenarios = [
     {
       titleZh: "销售团队管理",
@@ -151,6 +246,13 @@ export default function SmartRecorder() {
     },
   ];
 
+  // 配色选项
+  const colorOptions = [
+    { nameZh: "岩韵灰", nameEn: "Rock Grey", color: "#4A4A4A" },
+    { nameZh: "月辉银", nameEn: "Moon Silver", color: "#C0C0C0" },
+    { nameZh: "樱梦紫", nameEn: "Sakura Purple", color: "#9B7BB8" },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -159,6 +261,7 @@ export default function SmartRecorder() {
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
         
         <div className="container relative z-10">
           <motion.div
@@ -188,33 +291,139 @@ export default function SmartRecorder() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               {t("智能录音设备", "Smart Recording Devices")}
             </h1>
-            <p className="text-xl text-muted-foreground mb-4">
-              {t("录音卡 · 录音工牌 · 智能胸牌", "Recording Card · Badge · Smart Wearable")}
-            </p>
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground font-medium">
+                <Layers className="w-4 h-4" />
+                {t("2.89mm 超薄", "2.89mm Thin")}
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground font-medium">
+                <Battery className="w-4 h-4" />
+                {t("24小时续航", "24h Battery")}
+              </span>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground font-medium">
+                <Clock className="w-4 h-4" />
+                {t("1年待机", "1 Year Standby")}
+              </span>
+            </div>
             <p className="text-lg text-muted-foreground/80 max-w-2xl mx-auto">
               {t(
-                "为每位员工打造专属的智能录音设备，全天候记录工作场景中的语音交互，自动形成结构化记录，助力企业管理与业务复盘",
-                "Personalized smart recording devices for every employee, capturing voice interactions throughout the workday"
+                "采用独创低功耗录音技术，信用卡大小的超薄设计，随身携带不受限。三麦克风阵列精准拾音，双模快传秒速同步，为企业提供专业级的语音采集解决方案。",
+                "Proprietary low-power recording technology with credit card-sized ultra-thin design. Triple microphone array for precise pickup, dual-mode fast transfer for instant sync."
               )}
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Product Series */}
-      <section className="py-20 relative">
+      {/* Technology Advantages */}
+      <section className="py-20 bg-secondary/30">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("产品系列", "Product Series")}
+              {t("底层技术优势", "Core Technology Advantages")}
             </h2>
             <p className="text-muted-foreground">
-              {t("三款设备，满足不同场景需求", "Three devices for different scenarios")}
+              {t("源自专业级硬件平台的核心技术", "Professional-grade hardware platform technology")}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {techAdvantages.map((tech, index) => (
+              <motion.div
+                key={tech.titleZh}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <tech.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="text-lg font-semibold">
+                        {t(tech.titleZh, tech.titleEn)}
+                      </h3>
+                      <span className="px-2 py-0.5 rounded text-xs font-bold bg-primary/10 text-primary">
+                        {tech.highlight}
+                      </span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      {t(tech.descZh, tech.descEn)}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Specifications Table */}
+      <section className="py-20">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {t("产品规格参数", "Product Specifications")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("专业级硬件配置，满足企业级应用需求", "Professional hardware for enterprise applications")}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="gradient-border rounded-2xl overflow-hidden bg-card">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-border/50">
+                {specifications.map((spec, index) => (
+                  <div 
+                    key={spec.labelZh}
+                    className="p-4 md:p-6 bg-card hover:bg-secondary/30 transition-colors"
+                  >
+                    <p className="text-sm text-muted-foreground mb-1">
+                      {t(spec.labelZh, spec.labelEn)}
+                    </p>
+                    <p className="font-semibold text-foreground">
+                      {t(spec.valueZh, spec.valueEn)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Product Series */}
+      <section className="py-20 bg-secondary/20 relative">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {t("产品形态", "Product Forms")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("基于同一硬件平台，多种形态满足不同场景", "Same platform, multiple forms for different scenarios")}
             </p>
           </motion.div>
 
@@ -223,8 +432,9 @@ export default function SmartRecorder() {
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 60 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.7, delay: index * 0.2 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
                 className="gradient-border rounded-3xl overflow-hidden bg-card"
               >
                 <div className="p-8 md:p-12">
@@ -285,7 +495,45 @@ export default function SmartRecorder() {
         </div>
       </section>
 
-      {/* Core Features */}
+      {/* Color Options */}
+      <section className="py-20">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {t("配色选择", "Color Options")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("三款精选配色，满足不同审美需求", "Three curated colors for different preferences")}
+            </p>
+          </motion.div>
+
+          <div className="flex justify-center gap-8 md:gap-16">
+            {colorOptions.map((color, index) => (
+              <motion.div
+                key={color.nameZh}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div 
+                  className="w-20 h-20 md:w-24 md:h-24 rounded-full mx-auto mb-4 shadow-lg border-4 border-background"
+                  style={{ backgroundColor: color.color }}
+                />
+                <p className="font-medium">{t(color.nameZh, color.nameEn)}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* APP Smart Features */}
       <section className="py-20 bg-secondary/30">
         <div className="container">
           <motion.div
@@ -295,21 +543,21 @@ export default function SmartRecorder() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("核心功能", "Core Features")}
+              {t("APP智能功能", "Smart APP Features")}
             </h2>
             <p className="text-muted-foreground">
-              {t("从录音到洞察的完整链路", "Complete pipeline from recording to insights")}
+              {t("配套APP提供强大的AI处理能力", "Powerful AI processing with companion APP")}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {coreFeatures.map((feature, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {appFeatures.map((feature, index) => (
               <motion.div
                 key={feature.titleZh}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
                 className="p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-colors"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
