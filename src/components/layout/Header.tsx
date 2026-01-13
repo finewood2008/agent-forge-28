@@ -169,7 +169,7 @@ export const Header = () => {
               {t("企数星图", "Q-Atlas AI")}
             </span>
             <span className="text-muted-foreground text-center text-base font-sans font-medium">
-              {t("Polaris AI", "Enterprise AI Solutions")}
+              {t("Nexis AI", "Enterprise AI Solutions")}
             </span>
           </div>
         </Link>
