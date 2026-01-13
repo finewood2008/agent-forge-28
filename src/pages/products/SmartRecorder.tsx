@@ -244,20 +244,18 @@ export default function SmartRecorder() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <section className="pt-24 pb-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/3 right-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
         
         <div className="container relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-8"
+            className="mb-4"
           >
             <Link 
               to="/#core-products" 
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               {t("返回核心产品", "Back to Core Products")}
@@ -266,81 +264,82 @@ export default function SmartRecorder() {
 
           <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
+            transition={{ duration: 0.5 }}
+            className="text-center max-w-3xl mx-auto"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary mb-6">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary mb-4">
               {t("核心产品", "Core Product")}
             </span>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">
               {t("智能录音设备", "Smart Recording Devices")}
             </h1>
-            <div className="flex flex-wrap justify-center gap-4 mb-6">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground font-medium">
-                <Layers className="w-4 h-4" />
+            <div className="flex flex-wrap justify-center gap-2 mb-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm bg-secondary text-secondary-foreground font-medium">
+                <Layers className="w-3.5 h-3.5" />
                 {t("2.89mm 超薄", "2.89mm Thin")}
               </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground font-medium">
-                <Battery className="w-4 h-4" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm bg-secondary text-secondary-foreground font-medium">
+                <Battery className="w-3.5 h-3.5" />
                 {t("24小时续航", "24h Battery")}
               </span>
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground font-medium">
-                <Clock className="w-4 h-4" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm bg-secondary text-secondary-foreground font-medium">
+                <Clock className="w-3.5 h-3.5" />
                 {t("1年待机", "1 Year Standby")}
               </span>
             </div>
-            <p className="text-lg text-muted-foreground/80 max-w-2xl mx-auto">
+            <p className="text-base text-muted-foreground/80 max-w-2xl mx-auto">
               {t(
-                "采用独创低功耗录音技术，信用卡大小的超薄设计，随身携带不受限。三麦克风阵列精准拾音，双模快传秒速同步，为企业提供专业级的语音采集解决方案。",
-                "Proprietary low-power recording technology with credit card-sized ultra-thin design. Triple microphone array for precise pickup, dual-mode fast transfer for instant sync."
+                "采用独创低功耗录音技术，信用卡大小的超薄设计，随身携带不受限。三麦克风阵列精准拾音，双模快传秒速同步。",
+                "Proprietary low-power recording technology with credit card-sized ultra-thin design. Triple microphone array for precise pickup."
               )}
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Product Series - Moved to top */}
-      <section className="py-20 bg-secondary/20 relative">
+      {/* Product Series */}
+      <section className="py-12 bg-secondary/20 relative">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">
               {t("产品形态", "Product Forms")}
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               {t("基于同一硬件平台，多种形态满足不同场景", "Same platform, multiple forms for different scenarios")}
             </p>
           </motion.div>
 
-          <div className="space-y-16">
+          <div className="space-y-8">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
-                initial={{ opacity: 0, y: 60 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: index * 0.1 }}
-                className="gradient-border rounded-3xl overflow-hidden bg-card"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="gradient-border rounded-2xl overflow-hidden bg-card"
               >
-                <div className="p-8 md:p-12">
-                  <div className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
+                <div className="p-6 md:p-8">
+                  <div className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
                     {/* Image */}
                     <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                      <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-secondary/50 to-secondary/20 p-8">
+                      <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-secondary/50 to-secondary/20 p-4">
                         {product.images.length > 1 ? (
-                          <div className="grid grid-cols-3 gap-4">
+                          <div className="grid grid-cols-3 gap-3">
                             {product.images.map((img, imgIndex) => (
                               <img 
                                 key={imgIndex}
                                 src={img} 
                                 alt={`${t(product.titleZh, product.titleEn)} ${imgIndex + 1}`}
                                 className="w-full h-auto object-contain rounded-lg hover:scale-105 transition-transform cursor-pointer"
+                                loading="lazy"
                               />
                             ))}
                           </div>
@@ -348,7 +347,8 @@ export default function SmartRecorder() {
                           <img 
                             src={product.images[0]} 
                             alt={t(product.titleZh, product.titleEn)}
-                            className="w-full h-auto object-contain max-h-80 mx-auto"
+                            className="w-full h-auto object-contain max-h-64 mx-auto"
+                            loading="lazy"
                           />
                         )}
                       </div>
@@ -356,35 +356,35 @@ export default function SmartRecorder() {
 
                     {/* Content */}
                     <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                      <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-                        <product.icon className="w-7 h-7 text-primary" />
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                        <product.icon className="w-5 h-5 text-primary" />
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                      <h3 className="text-xl md:text-2xl font-bold mb-1">
                         {t(product.titleZh, product.titleEn)}
                       </h3>
-                      <p className="text-primary mb-4">
+                      <p className="text-sm text-primary mb-3">
                         {t(product.subtitleZh, product.subtitleEn)}
                       </p>
-                      <p className="text-muted-foreground mb-6">
+                      <p className="text-sm text-muted-foreground mb-4">
                         {t(product.descZh, product.descEn)}
                       </p>
 
                       {/* Features */}
-                      <div className="grid grid-cols-2 gap-3 mb-6">
+                      <div className="grid grid-cols-2 gap-2 mb-4">
                         {product.featuresZh.map((feature, i) => (
-                          <div key={feature} className="flex items-center gap-2">
-                            <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                            <span className="text-sm">{t(feature, product.featuresEn[i])}</span>
+                          <div key={feature} className="flex items-center gap-1.5">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                            <span className="text-xs">{t(feature, product.featuresEn[i])}</span>
                           </div>
                         ))}
                       </div>
 
                       {/* Scenarios */}
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5">
                         {product.scenariosZh.map((scenario, i) => (
                           <span 
                             key={scenario}
-                            className="px-3 py-1.5 rounded-full text-xs bg-secondary text-secondary-foreground"
+                            className="px-2 py-1 rounded-full text-xs bg-secondary text-secondary-foreground"
                           >
                             {t(scenario, product.scenariosEn[i])}
                           </span>
@@ -400,46 +400,46 @@ export default function SmartRecorder() {
       </section>
 
       {/* Technology Advantages */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-12 bg-secondary/30">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">
               {t("底层技术优势", "Core Technology Advantages")}
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               {t("源自专业级硬件平台的核心技术", "Professional-grade hardware platform technology")}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {techAdvantages.map((tech, index) => (
               <motion.div
                 key={tech.titleZh}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
+                transition={{ delay: index * 0.05 }}
+                className="group p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <tech.icon className="w-6 h-6 text-primary" />
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <tech.icon className="w-4.5 h-4.5 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <h3 className="text-lg font-semibold">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-sm font-semibold">
                         {t(tech.titleZh, tech.titleEn)}
                       </h3>
-                      <span className="px-2 py-0.5 rounded text-xs font-bold bg-primary/10 text-primary">
+                      <span className="px-1.5 py-0.5 rounded text-xs font-bold bg-primary/10 text-primary">
                         {tech.highlight}
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs text-muted-foreground">
                       {t(tech.descZh, tech.descEn)}
                     </p>
                   </div>
@@ -451,39 +451,39 @@ export default function SmartRecorder() {
       </section>
 
       {/* Specifications Table */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">
               {t("产品规格参数", "Product Specifications")}
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               {t("专业级硬件配置，满足企业级应用需求", "Professional hardware for enterprise applications")}
             </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
+            className="max-w-3xl mx-auto"
           >
-            <div className="gradient-border rounded-2xl overflow-hidden bg-card">
+            <div className="gradient-border rounded-xl overflow-hidden bg-card">
               <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-border/50">
-                {specifications.map((spec, index) => (
+                {specifications.map((spec) => (
                   <div 
                     key={spec.labelZh}
-                    className="p-4 md:p-6 bg-card hover:bg-secondary/30 transition-colors"
+                    className="p-3 md:p-4 bg-card hover:bg-secondary/30 transition-colors"
                   >
-                    <p className="text-sm text-muted-foreground mb-1">
+                    <p className="text-xs text-muted-foreground mb-0.5">
                       {t(spec.labelZh, spec.labelEn)}
                     </p>
-                    <p className="font-semibold text-foreground">
+                    <p className="text-sm font-semibold text-foreground">
                       {t(spec.valueZh, spec.valueEn)}
                     </p>
                   </div>
@@ -495,37 +495,37 @@ export default function SmartRecorder() {
       </section>
 
       {/* Color Options */}
-      <section className="py-20">
+      <section className="py-10">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-6"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">
               {t("配色选择", "Color Options")}
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               {t("三款精选配色，满足不同审美需求", "Three curated colors for different preferences")}
             </p>
           </motion.div>
 
-          <div className="flex justify-center gap-8 md:gap-16">
+          <div className="flex justify-center gap-6 md:gap-10">
             {colorOptions.map((color, index) => (
               <motion.div
                 key={color.nameZh}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
                 className="text-center"
               >
                 <div 
-                  className="w-20 h-20 md:w-24 md:h-24 rounded-full mx-auto mb-4 shadow-lg border-4 border-background"
+                  className="w-14 h-14 md:w-16 md:h-16 rounded-full mx-auto mb-2 shadow-md border-2 border-background"
                   style={{ backgroundColor: color.color }}
                 />
-                <p className="font-medium">{t(color.nameZh, color.nameEn)}</p>
+                <p className="text-sm font-medium">{t(color.nameZh, color.nameEn)}</p>
               </motion.div>
             ))}
           </div>
@@ -533,39 +533,39 @@ export default function SmartRecorder() {
       </section>
 
       {/* APP Smart Features */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-12 bg-secondary/30">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">
               {t("APP智能功能", "Smart APP Features")}
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-sm text-muted-foreground">
               {t("配套APP提供强大的AI处理能力", "Powerful AI processing with companion APP")}
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {appFeatures.map((feature, index) => (
               <motion.div
                 key={feature.titleZh}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-colors"
+                transition={{ delay: index * 0.03 }}
+                className="p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-primary" />
+                <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
+                  <feature.icon className="w-4.5 h-4.5 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">
+                <h3 className="text-sm font-semibold mb-1">
                   {t(feature.titleZh, feature.titleEn)}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-muted-foreground">
                   {t(feature.descZh, feature.descEn)}
                 </p>
               </motion.div>
@@ -575,34 +575,34 @@ export default function SmartRecorder() {
       </section>
 
       {/* Application Scenarios */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">
               {t("应用场景", "Application Scenarios")}
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {scenarios.map((scenario, index) => (
               <motion.div
                 key={scenario.titleZh}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
+                transition={{ delay: index * 0.05 }}
+                className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
               >
-                <Headphones className="w-8 h-8 text-primary mb-4" />
-                <h3 className="text-lg font-semibold mb-2">
+                <Headphones className="w-6 h-6 text-primary mb-2" />
+                <h3 className="text-sm font-semibold mb-1">
                   {t(scenario.titleZh, scenario.titleEn)}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-muted-foreground">
                   {t(scenario.descZh, scenario.descEn)}
                 </p>
               </motion.div>
@@ -612,27 +612,27 @@ export default function SmartRecorder() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+      <section className="py-12 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto"
+            className="text-center max-w-xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
               {t("开启智能录音之旅", "Start Your Smart Recording Journey")}
             </h2>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-sm text-muted-foreground mb-6">
               {t(
                 "联系我们，为您的团队定制专属的智能录音解决方案",
                 "Contact us to customize smart recording solutions for your team"
               )}
             </p>
-            <Button variant="hero" size="lg" asChild>
+            <Button variant="hero" size="default" asChild>
               <Link to="/#contact">
                 {t("立即咨询", "Contact Us Now")}
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
           </motion.div>
