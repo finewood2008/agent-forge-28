@@ -20,8 +20,14 @@ import {
   Clock,
   MessageSquare,
   Target,
-  BarChart3
+  BarChart3,
+  Play
 } from "lucide-react";
+
+// Import product assets
+import meetingRobotVideo from "@/assets/meeting-robot-video.mp4";
+import meetingRobotDevice from "@/assets/meeting-robot-device.png";
+import meetingRobotScreen from "@/assets/meeting-robot-screen.png";
 
 export default function MeetingRobot() {
   const ref = useRef(null);
@@ -182,8 +188,8 @@ export default function MeetingRobot() {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      {/* Hero Section with Video */}
+      <section className="pt-32 pb-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
         
@@ -207,7 +213,7 @@ export default function MeetingRobot() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
+            className="text-center max-w-4xl mx-auto mb-12"
           >
             <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary mb-6">
               {t("核心产品", "Core Product")}
@@ -226,12 +232,34 @@ export default function MeetingRobot() {
             </p>
           </motion.div>
 
+          {/* Core Video Display */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-5xl mx-auto mb-12"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-border/30">
+              <video 
+                className="w-full aspect-video object-cover"
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+                poster={meetingRobotDevice}
+              >
+                <source src={meetingRobotVideo} type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
+            </div>
+          </motion.div>
+
           {/* Feature Pills */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-4 mt-10"
+            transition={{ delay: 0.4 }}
+            className="flex flex-wrap justify-center gap-4"
           >
             {features.map((feature) => (
               <div 
@@ -316,7 +344,7 @@ export default function MeetingRobot() {
         </div>
       </section>
 
-      {/* Product Image Placeholder */}
+      {/* Product Gallery Section */}
       <section className="py-20 bg-secondary/30">
         <div className="container">
           <motion.div
@@ -333,24 +361,45 @@ export default function MeetingRobot() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
-            {/* Placeholder for product image */}
-            <div className="aspect-video rounded-3xl bg-gradient-to-br from-secondary to-secondary/50 border border-border/50 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Mic className="w-12 h-12 text-primary" />
-                </div>
-                <p className="text-muted-foreground">
-                  {t("产品图片即将上线", "Product image coming soon")}
-                </p>
+          {/* Product Images Grid */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="group"
+            >
+              <div className="rounded-3xl overflow-hidden border border-border/50 shadow-lg">
+                <img 
+                  src={meetingRobotDevice} 
+                  alt={t("会议机器人设备", "Meeting Robot Device")}
+                  className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
-            </div>
-          </motion.div>
+              <p className="text-center text-muted-foreground mt-4 text-sm">
+                {t("三角立式设计，会议室标配", "Triangular design, meeting room standard")}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="group"
+            >
+              <div className="rounded-3xl overflow-hidden border border-border/50 shadow-lg">
+                <img 
+                  src={meetingRobotScreen} 
+                  alt={t("会议纪要界面", "Meeting Minutes Interface")}
+                  className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <p className="text-center text-muted-foreground mt-4 text-sm">
+                {t("实时转写，智能生成会议纪要", "Real-time transcription with smart meeting minutes")}
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
