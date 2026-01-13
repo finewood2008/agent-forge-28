@@ -189,20 +189,20 @@ export default function MeetingRobot() {
       <Header />
       
       {/* Hero Section with Video */}
-      <section className="pt-24 pb-8 relative overflow-hidden">
+      <section className="pt-20 md:pt-24 pb-6 md:pb-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
         
-        <div className="container relative z-10">
+        <div className="container px-4 md:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-4"
+            className="mb-3 md:mb-4"
           >
             <Link 
               to="/#core-products" 
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
               {t("返回核心产品", "Back to Core Products")}
             </Link>
           </motion.div>
@@ -212,18 +212,18 @@ export default function MeetingRobot() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center max-w-3xl mx-auto mb-8"
+            className="text-center max-w-3xl mx-auto mb-5 md:mb-8"
           >
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary mb-3">
+            <span className="inline-block px-2.5 py-1 rounded-full text-[10px] md:text-xs font-medium bg-primary/10 text-primary mb-2 md:mb-3">
               {t("核心产品", "Core Product")}
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold mb-3">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 md:mb-3">
               {t("会议机器人", "Meeting Robot")}
             </h1>
-            <p className="text-lg text-primary mb-2">
+            <p className="text-base md:text-lg text-primary mb-1.5 md:mb-2">
               {t("您的智能会议秘书", "Your Smart Meeting Secretary")}
             </p>
-            <p className="text-base text-muted-foreground/80 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base text-muted-foreground/80 max-w-2xl mx-auto px-2">
               {t(
                 "会前智能通知、会中实时记录、会后任务分发。让每一场会议都有价值输出",
                 "Pre-meeting notifications, real-time recording, post-meeting task distribution."
@@ -236,9 +236,9 @@ export default function MeetingRobot() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="max-w-4xl mx-auto mb-6"
+            className="max-w-4xl mx-auto mb-4 md:mb-6"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-border/30">
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-lg md:shadow-xl border border-border/30">
               <video 
                 className="w-full aspect-video object-cover"
                 autoPlay 
@@ -257,14 +257,14 @@ export default function MeetingRobot() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-3"
+            className="flex flex-wrap justify-center gap-2 md:gap-3"
           >
             {features.map((feature) => (
               <div 
                 key={feature.titleZh}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 text-sm"
+                className="flex items-center gap-1.5 md:gap-2 px-2.5 md:px-4 py-1.5 md:py-2 rounded-full bg-card border border-border/50 text-xs md:text-sm"
               >
-                <feature.icon className="w-4 h-4 text-primary" />
+                <feature.icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
                 <span className="font-medium">{t(feature.titleZh, feature.titleEn)}</span>
               </div>
             ))}
@@ -273,23 +273,23 @@ export default function MeetingRobot() {
       </section>
 
       {/* Three Phases Section */}
-      <section className="py-12 relative">
-        <div className="container">
+      <section className="py-8 md:py-12 relative">
+        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-center mb-8"
+            className="text-center mb-6 md:mb-8"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1.5 md:mb-2">
               {t("全流程会议管理", "Full-cycle Meeting Management")}
             </h2>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs md:text-sm text-muted-foreground">
               {t("从会前到会后，一站式解决会议管理痛点", "From pre to post-meeting, one-stop solution")}
             </p>
           </motion.div>
 
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {phases.map((phase, index) => (
               <motion.div
                 key={phase.id}
@@ -299,33 +299,33 @@ export default function MeetingRobot() {
                 className="relative"
               >
                 {/* Phase Indicator */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${phase.gradient} flex items-center justify-center shadow-md`}>
-                    <phase.icon className="w-6 h-6 text-white" />
+                <div className="flex items-center gap-2.5 md:gap-3 mb-3 md:mb-4">
+                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-gradient-to-br ${phase.gradient} flex items-center justify-center shadow-md`}>
+                    <phase.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
                   <div>
-                    <span className="text-xs text-muted-foreground">{t(phase.phaseZh, phase.phaseEn)}</span>
-                    <h3 className="text-lg font-bold">{t(phase.titleZh, phase.titleEn)}</h3>
+                    <span className="text-[10px] md:text-xs text-muted-foreground">{t(phase.phaseZh, phase.phaseEn)}</span>
+                    <h3 className="text-base md:text-lg font-bold">{t(phase.titleZh, phase.titleEn)}</h3>
                   </div>
                 </div>
 
                 {/* Features Grid */}
-                <div className="grid md:grid-cols-3 gap-4 pl-0 md:pl-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 pl-0 md:pl-16">
                   {phase.features.map((feature, featureIndex) => (
                     <motion.div
                       key={feature.titleZh}
                       initial={{ opacity: 0, y: 15 }}
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: index * 0.1 + featureIndex * 0.05 }}
-                      className="p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors"
+                      className="p-3 md:p-4 rounded-lg md:rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-colors"
                     >
-                      <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center mb-3">
-                        <feature.icon className="w-4.5 h-4.5 text-primary" />
+                      <div className="w-7 h-7 md:w-9 md:h-9 rounded-md md:rounded-lg bg-secondary flex items-center justify-center mb-2 md:mb-3">
+                        <feature.icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary" />
                       </div>
-                      <h4 className="text-sm font-semibold mb-1">
+                      <h4 className="text-xs md:text-sm font-semibold mb-0.5 md:mb-1">
                         {t(feature.titleZh, feature.titleEn)}
                       </h4>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-[10px] md:text-xs text-muted-foreground line-clamp-2">
                         {t(feature.descZh, feature.descEn)}
                       </p>
                     </motion.div>
@@ -343,31 +343,31 @@ export default function MeetingRobot() {
       </section>
 
       {/* Product Gallery Section */}
-      <section className="py-12 bg-secondary/30">
-        <div className="container">
+      <section className="py-8 md:py-12 bg-secondary/30">
+        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="text-center mb-6 md:mb-8"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1.5 md:mb-2">
               {t("会议室专用设备", "Dedicated Meeting Room Device")}
             </h2>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs md:text-sm text-muted-foreground">
               {t("专为会议场景设计的智能硬件", "Smart hardware designed for meeting scenarios")}
             </p>
           </motion.div>
 
           {/* Product Images Grid */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="group"
             >
-              <div className="rounded-2xl overflow-hidden border border-border/50 shadow-md">
+              <div className="rounded-xl md:rounded-2xl overflow-hidden border border-border/50 shadow-md">
                 <img 
                   src={meetingRobotDevice} 
                   alt={t("会议机器人设备", "Meeting Robot Device")}
@@ -375,7 +375,7 @@ export default function MeetingRobot() {
                   loading="lazy"
                 />
               </div>
-              <p className="text-center text-muted-foreground mt-2 text-xs">
+              <p className="text-center text-muted-foreground mt-1.5 md:mt-2 text-[10px] md:text-xs">
                 {t("三角立式设计，会议室标配", "Triangular design, meeting room standard")}
               </p>
             </motion.div>
@@ -387,7 +387,7 @@ export default function MeetingRobot() {
               transition={{ delay: 0.1 }}
               className="group"
             >
-              <div className="rounded-2xl overflow-hidden border border-border/50 shadow-md">
+              <div className="rounded-xl md:rounded-2xl overflow-hidden border border-border/50 shadow-md">
                 <img 
                   src={meetingRobotScreen} 
                   alt={t("会议纪要界面", "Meeting Minutes Interface")}
@@ -395,7 +395,7 @@ export default function MeetingRobot() {
                   loading="lazy"
                 />
               </div>
-              <p className="text-center text-muted-foreground mt-2 text-xs">
+              <p className="text-center text-muted-foreground mt-1.5 md:mt-2 text-[10px] md:text-xs">
                 {t("实时转写，智能生成会议纪要", "Real-time transcription with smart meeting minutes")}
               </p>
             </motion.div>
@@ -404,20 +404,20 @@ export default function MeetingRobot() {
       </section>
 
       {/* Application Scenarios */}
-      <section className="py-12">
-        <div className="container">
+      <section className="py-8 md:py-12">
+        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="text-center mb-5 md:mb-8"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1.5 md:mb-2">
               {t("应用场景", "Application Scenarios")}
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
             {scenarios.map((scenario, index) => (
               <motion.div
                 key={scenario.titleZh}
@@ -425,12 +425,12 @@ export default function MeetingRobot() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
+                className="p-3 md:p-4 rounded-lg md:rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-primary/20"
               >
-                <h3 className="text-sm font-semibold mb-1">
+                <h3 className="text-xs md:text-sm font-semibold mb-0.5 md:mb-1">
                   {t(scenario.titleZh, scenario.titleEn)}
                 </h3>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-[10px] md:text-xs text-muted-foreground line-clamp-2">
                   {t(scenario.descZh, scenario.descEn)}
                 </p>
               </motion.div>
@@ -440,27 +440,27 @@ export default function MeetingRobot() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
-        <div className="container">
+      <section className="py-8 md:py-12 bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center max-w-xl mx-auto"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 md:mb-3">
               {t("让会议更有价值", "Make Meetings More Valuable")}
             </h2>
-            <p className="text-sm text-muted-foreground mb-6">
+            <p className="text-xs md:text-sm text-muted-foreground mb-4 md:mb-6">
               {t(
                 "告别冗长低效的会议，让每一次讨论都有结果",
                 "Say goodbye to inefficient meetings, make every discussion count"
               )}
             </p>
-            <Button size="default" asChild>
+            <Button size="sm" className="md:text-sm" asChild>
               <Link to="/#contact">
                 {t("预约演示", "Book a Demo")}
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <ArrowRight className="ml-1.5 w-3.5 h-3.5 md:ml-2 md:w-4 md:h-4" />
               </Link>
             </Button>
           </motion.div>

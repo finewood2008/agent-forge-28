@@ -244,20 +244,20 @@ export default function SmartRecorder() {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-12 relative overflow-hidden">
+      <section className="pt-20 md:pt-24 pb-8 md:pb-12 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
         
-        <div className="container relative z-10">
+        <div className="container px-4 md:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-4"
+            className="mb-3 md:mb-4"
           >
             <Link 
               to="/#core-products" 
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
               {t("返回核心产品", "Back to Core Products")}
             </Link>
           </motion.div>
@@ -269,27 +269,27 @@ export default function SmartRecorder() {
             transition={{ duration: 0.5 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary mb-4">
+            <span className="inline-block px-2.5 py-1 rounded-full text-[10px] md:text-xs font-medium bg-primary/10 text-primary mb-3 md:mb-4">
               {t("核心产品", "Core Product")}
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 md:mb-4">
               {t("智能录音设备", "Smart Recording Devices")}
             </h1>
-            <div className="flex flex-wrap justify-center gap-2 mb-4">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm bg-secondary text-secondary-foreground font-medium">
-                <Layers className="w-3.5 h-3.5" />
+            <div className="flex flex-wrap justify-center gap-1.5 md:gap-2 mb-3 md:mb-4">
+              <span className="inline-flex items-center gap-1 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs md:text-sm bg-secondary text-secondary-foreground font-medium">
+                <Layers className="w-3 h-3 md:w-3.5 md:h-3.5" />
                 {t("2.89mm 超薄", "2.89mm Thin")}
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm bg-secondary text-secondary-foreground font-medium">
-                <Battery className="w-3.5 h-3.5" />
+              <span className="inline-flex items-center gap-1 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs md:text-sm bg-secondary text-secondary-foreground font-medium">
+                <Battery className="w-3 h-3 md:w-3.5 md:h-3.5" />
                 {t("24小时续航", "24h Battery")}
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm bg-secondary text-secondary-foreground font-medium">
-                <Clock className="w-3.5 h-3.5" />
+              <span className="inline-flex items-center gap-1 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-xs md:text-sm bg-secondary text-secondary-foreground font-medium">
+                <Clock className="w-3 h-3 md:w-3.5 md:h-3.5" />
                 {t("1年待机", "1 Year Standby")}
               </span>
             </div>
-            <p className="text-base text-muted-foreground/80 max-w-2xl mx-auto">
+            <p className="text-sm md:text-base text-muted-foreground/80 max-w-2xl mx-auto px-2">
               {t(
                 "采用独创低功耗录音技术，信用卡大小的超薄设计，随身携带不受限。三麦克风阵列精准拾音，双模快传秒速同步。",
                 "Proprietary low-power recording technology with credit card-sized ultra-thin design. Triple microphone array for precise pickup."
@@ -300,23 +300,23 @@ export default function SmartRecorder() {
       </section>
 
       {/* Product Series */}
-      <section className="py-12 bg-secondary/20 relative">
-        <div className="container">
+      <section className="py-8 md:py-12 bg-secondary/20 relative">
+        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-8"
+            className="text-center mb-6 md:mb-8"
           >
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1.5 md:mb-2">
               {t("产品形态", "Product Forms")}
             </h2>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-xs md:text-sm text-muted-foreground">
               {t("基于同一硬件平台，多种形态满足不同场景", "Same platform, multiple forms for different scenarios")}
             </p>
           </motion.div>
 
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -324,21 +324,21 @@ export default function SmartRecorder() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="gradient-border rounded-2xl overflow-hidden bg-card"
+                className="gradient-border rounded-xl md:rounded-2xl overflow-hidden bg-card"
               >
-                <div className="p-6 md:p-8">
-                  <div className={`grid lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
+                <div className="p-4 md:p-6 lg:p-8">
+                  <div className={`grid lg:grid-cols-2 gap-4 md:gap-8 items-center ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
                     {/* Image */}
                     <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                      <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-secondary/50 to-secondary/20 p-4">
+                      <div className="relative rounded-lg md:rounded-xl overflow-hidden bg-gradient-to-br from-secondary/50 to-secondary/20 p-3 md:p-4">
                         {product.images.length > 1 ? (
-                          <div className="grid grid-cols-3 gap-3">
+                          <div className="grid grid-cols-3 gap-2 md:gap-3">
                             {product.images.map((img, imgIndex) => (
                               <img 
                                 key={imgIndex}
                                 src={img} 
                                 alt={`${t(product.titleZh, product.titleEn)} ${imgIndex + 1}`}
-                                className="w-full h-auto object-contain rounded-lg hover:scale-105 transition-transform cursor-pointer"
+                                className="w-full h-auto object-contain rounded-md md:rounded-lg hover:scale-105 transition-transform cursor-pointer"
                                 loading="lazy"
                               />
                             ))}
@@ -347,7 +347,7 @@ export default function SmartRecorder() {
                           <img 
                             src={product.images[0]} 
                             alt={t(product.titleZh, product.titleEn)}
-                            className="w-full h-auto object-contain max-h-64 mx-auto"
+                            className="w-full h-auto object-contain max-h-48 md:max-h-64 mx-auto"
                             loading="lazy"
                           />
                         )}
@@ -356,35 +356,35 @@ export default function SmartRecorder() {
 
                     {/* Content */}
                     <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <product.icon className="w-5 h-5 text-primary" />
+                      <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-primary/10 flex items-center justify-center mb-3 md:mb-4">
+                        <product.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold mb-1">
+                      <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-0.5 md:mb-1">
                         {t(product.titleZh, product.titleEn)}
                       </h3>
-                      <p className="text-sm text-primary mb-3">
+                      <p className="text-xs md:text-sm text-primary mb-2 md:mb-3">
                         {t(product.subtitleZh, product.subtitleEn)}
                       </p>
-                      <p className="text-sm text-muted-foreground mb-4">
+                      <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 line-clamp-3 md:line-clamp-none">
                         {t(product.descZh, product.descEn)}
                       </p>
 
                       {/* Features */}
-                      <div className="grid grid-cols-2 gap-2 mb-4">
+                      <div className="grid grid-cols-2 gap-1.5 md:gap-2 mb-3 md:mb-4">
                         {product.featuresZh.map((feature, i) => (
-                          <div key={feature} className="flex items-center gap-1.5">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0" />
-                            <span className="text-xs">{t(feature, product.featuresEn[i])}</span>
+                          <div key={feature} className="flex items-center gap-1 md:gap-1.5">
+                            <CheckCircle2 className="w-3 h-3 md:w-3.5 md:h-3.5 text-primary shrink-0" />
+                            <span className="text-[10px] md:text-xs">{t(feature, product.featuresEn[i])}</span>
                           </div>
                         ))}
                       </div>
 
                       {/* Scenarios */}
-                      <div className="flex flex-wrap gap-1.5">
+                      <div className="flex flex-wrap gap-1 md:gap-1.5">
                         {product.scenariosZh.map((scenario, i) => (
                           <span 
                             key={scenario}
-                            className="px-2 py-1 rounded-full text-xs bg-secondary text-secondary-foreground"
+                            className="px-1.5 md:px-2 py-0.5 md:py-1 rounded-full text-[10px] md:text-xs bg-secondary text-secondary-foreground"
                           >
                             {t(scenario, product.scenariosEn[i])}
                           </span>
