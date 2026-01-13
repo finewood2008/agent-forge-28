@@ -74,7 +74,7 @@ export const CapabilitiesSection = () => {
         >
           <div className="text-center mb-5">
             <h3 className="text-xl font-bold mb-2">
-              {t("自研企业级智能体开发平台", "Self-developed Enterprise AI Agent Platform")}
+              {t("自研企业级智能体开发平台", "Self-developed Enterprise AI Agent Platform")} <span className="gradient-text">Nexis OS</span>
             </h3>
             <p className="text-muted-foreground text-sm">
               {t(
