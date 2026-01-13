@@ -17,9 +17,9 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import enterpriseAudioSolutionImage from "@/assets/enterprise-audio-solution.png";
-import recorderBadgeImage from "@/assets/recorder-badge-eink.png";
-import meetingRobotImage from "@/assets/meeting-robot-device.png";
-import privateCloudImage from "@/assets/private-cloud-hero.jpg";
+import productCardRecorder from "@/assets/product-card-recorder.png";
+import productCardConference from "@/assets/product-card-conference.png";
+import productCardCloud from "@/assets/product-card-cloud.png";
 
 export const CoreProductSection = () => {
   const ref = useRef(null);
@@ -34,7 +34,7 @@ export const CoreProductSection = () => {
       titleEn: "Smart Recording",
       subtitleZh: "录音卡 · 录音工牌 · 智能胸牌",
       subtitleEn: "Card · Badge · Wearable",
-      bgImage: recorderBadgeImage,
+      bgImage: productCardRecorder,
       features: [
         { textZh: "高清录音", textEn: "HD Audio" },
         { textZh: "实时转写", textEn: "Real-time" },
@@ -48,7 +48,7 @@ export const CoreProductSection = () => {
       titleEn: "Conference System",
       subtitleZh: "会议室专用智能设备",
       subtitleEn: "Smart Meeting Devices",
-      bgImage: meetingRobotImage,
+      bgImage: productCardConference,
       features: [
         { textZh: "多人识别", textEn: "Multi-speaker" },
         { textZh: "智能纪要", textEn: "Smart Minutes" },
@@ -62,7 +62,7 @@ export const CoreProductSection = () => {
       titleEn: "Private Cloud",
       subtitleZh: "企业专属数据安全保障",
       subtitleEn: "Enterprise Data Security",
-      bgImage: privateCloudImage,
+      bgImage: productCardCloud,
       features: [
         { textZh: "本地存储", textEn: "Local Storage" },
         { textZh: "安全防护", textEn: "Security" },
@@ -94,14 +94,14 @@ export const CoreProductSection = () => {
           </h2>
         </motion.div>
 
-        {/* Hero Image - Large & Prominent */}
+        {/* Hero Image - Slightly Reduced */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-16"
+          className="mb-12 max-w-5xl mx-auto"
         >
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/20">
             {/* Main Image */}
             <img 
               src={enterpriseAudioSolutionImage} 
