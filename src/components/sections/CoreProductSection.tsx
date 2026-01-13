@@ -44,8 +44,8 @@ export const CoreProductSection = () => {
     {
       id: "conference",
       icon: MonitorSpeaker,
-      titleZh: "企业会议系统",
-      titleEn: "Conference System",
+      titleZh: "企业会议机器人",
+      titleEn: "Meeting Robot",
       subtitleZh: "会议室专用智能设备",
       subtitleEn: "Smart Meeting Devices",
       bgImage: productCardConference,
@@ -58,8 +58,8 @@ export const CoreProductSection = () => {
     {
       id: "cloud",
       icon: Server,
-      titleZh: "私有云算力",
-      titleEn: "Private Cloud",
+      titleZh: "企业私有AI服务器",
+      titleEn: "Private AI Server",
       subtitleZh: "企业专属数据安全保障",
       subtitleEn: "Enterprise Data Security",
       bgImage: productCardCloud,
