@@ -72,7 +72,7 @@ export const CoreProductSection = () => {
   ];
 
   return (
-    <section id="core-products" className="py-20 md:py-32 relative overflow-hidden bg-gradient-to-b from-background via-background to-background">
+    <section id="core-products" className="py-16 md:py-20 relative overflow-hidden bg-gradient-to-b from-background via-background to-background">
       {/* Subtle background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
 
@@ -83,7 +83,7 @@ export const CoreProductSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-10"
+          className="text-center mb-8"
         >
           <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">
             {t("核心产品", "Core Products")}
@@ -99,7 +99,7 @@ export const CoreProductSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-12 max-w-5xl mx-auto"
+          className="mb-10 max-w-5xl mx-auto"
         >
           <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/20">
             {/* Main Image */}
@@ -221,7 +221,7 @@ export const CoreProductSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="text-center mt-12"
+          className="text-center mt-10"
         >
           <Button variant="hero" size="lg" asChild>
             <a href="#contact">

@@ -15,7 +15,7 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -37,14 +37,14 @@ export const HeroSection = () => {
         }}
       />
 
-      <div className="container relative z-10 pt-24 pb-12">
+      <div className="container relative z-10 pt-20 pb-8">
         <div className="max-w-4xl mx-auto text-center">
           {/* Certification Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
           >
             <Shield className="w-4 h-4 text-accent" />
             <span className="text-sm text-muted-foreground">
@@ -57,7 +57,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4"
           >
             <span className="text-foreground">
               {t("企业级AI智能体开发专家", "Enterprise AI Agent Development Expert")}
@@ -73,7 +73,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4"
+            className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-3"
           >
             {t(
               "核心产品：企业级智能音频解决方案 | 定制服务：行业智能体开发",
@@ -85,7 +85,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-base text-muted-foreground/70 max-w-xl mx-auto mb-10"
+            className="text-sm text-muted-foreground/70 max-w-xl mx-auto mb-8"
           >
             {t(
               "为企业打造专属AI能力，数据本地化存储，告别安全风险",
@@ -115,12 +115,12 @@ export const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-16 pt-8 border-t border-border/30"
+            className="mt-10 pt-6 border-t border-border/30"
           >
-            <p className="text-sm text-muted-foreground mb-6">
+            <p className="text-sm text-muted-foreground mb-4">
               {t("核心团队来自", "Core Team From")}
             </p>
-            <div className="flex items-center justify-center gap-8 md:gap-16 opacity-60">
+            <div className="flex items-center justify-center gap-6 md:gap-12 opacity-60">
               {companies.map((company) => (
                 <span key={company.zh} className="text-lg md:text-xl font-semibold text-muted-foreground">
                   {t(company.zh, company.en)}
@@ -136,7 +136,7 @@ export const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2"
       >
         <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex justify-center pt-2">
           <motion.div

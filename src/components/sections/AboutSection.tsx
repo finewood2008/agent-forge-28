@@ -52,19 +52,19 @@ export const AboutSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-10"
         >
           <span className="text-primary text-sm font-medium tracking-wider uppercase mb-4 block">
             About Q-Atlas AI
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold mb-4">
             {t("关于", "About")}
             <span className="gradient-text">{t("企数星图", "Q-Atlas AI")}</span>
           </h2>
         </motion.div>
 
         {/* About Content with Certification Image */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -105,14 +105,14 @@ export const AboutSection = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid md:grid-cols-3 gap-6 mb-20">
+        <div className="grid md:grid-cols-3 gap-4 mb-12">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.labelZh}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-              className="text-center p-8 rounded-2xl bg-secondary/50 border border-border/50"
+              className="text-center p-6 rounded-2xl bg-secondary/50 border border-border/50"
             >
               <stat.icon className="w-8 h-8 text-primary mx-auto mb-4" />
               <p className="text-3xl md:text-4xl font-bold gradient-text mb-2">
@@ -129,7 +129,7 @@ export const AboutSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h3 className="text-2xl font-bold text-center mb-12">
+          <h3 className="text-xl font-bold text-center mb-8">
             {t("企业历程", "Company Timeline")}
           </h3>
           <div className="relative">
