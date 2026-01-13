@@ -35,7 +35,7 @@ import {
 import recorderCardFront from "@/assets/recorder-card-front.png";
 import recorderCardBack from "@/assets/recorder-card-back.png";
 import recorderPhoneMagnetic from "@/assets/recorder-phone-magnetic.png";
-import recorderBadgeEink from "@/assets/recorder-badge-eink.png";
+import recorderBadgeEink from "@/assets/recorder-badge-eink.jpg";
 
 export default function SmartRecorder() {
   const ref = useRef(null);
