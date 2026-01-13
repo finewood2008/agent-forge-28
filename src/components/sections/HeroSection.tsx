@@ -60,11 +60,11 @@ export const HeroSection = () => {
             className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           >
             <span className="text-foreground">
-              {t("企业级智能体定制开发", "Enterprise AI Agent Development")}
+              {t("企业级AI智能体开发专家", "Enterprise AI Agent Development Expert")}
             </span>
             <br />
             <span className="gradient-text">
-              {t("从底层模型到私有化部署", "From Foundation Models to Private Deployment")}
+              {t("软硬一体 · 私有部署", "Hardware-Software Integration · Private Deployment")}
             </span>
           </motion.h1>
 
@@ -76,8 +76,8 @@ export const HeroSection = () => {
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4"
           >
             {t(
-              "专为企业打造的AI智能体 | 数据安全隔离 · 模型私有化 · 深度业务定制",
-              "Enterprise AI Agents | Data Security · Private Deployment · Deep Customization"
+              "核心产品：企业级智能音频解决方案 | 定制服务：行业智能体开发",
+              "Core Product: Enterprise Audio Intelligence | Custom: Industry AI Agents"
             )}
           </motion.p>
           
@@ -88,8 +88,8 @@ export const HeroSection = () => {
             className="text-base text-muted-foreground/70 max-w-xl mx-auto mb-10"
           >
             {t(
-              "Enterprise-Grade AI Agents, Built for Your Business",
-              "Secure, Compliant, and Tailored to Your Industry"
+              "为企业打造专属AI能力，数据本地化存储，告别安全风险",
+              "Build Exclusive AI for Enterprise, Local Data Storage, Zero Security Risk"
             )}
           </motion.p>
 
