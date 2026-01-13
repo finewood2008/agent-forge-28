@@ -74,7 +74,7 @@ export const CapabilitiesSection = () => {
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold mb-3">
-              {t("自研企业级智能体开发平台 — XMakeHub", "Self-developed Enterprise AI Agent Platform — XMakeHub")}
+              {t("自研企业级智能体开发平台", "Self-developed Enterprise AI Agent Platform")}
             </h3>
             <p className="text-muted-foreground">
               {t(
