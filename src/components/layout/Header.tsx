@@ -13,8 +13,8 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { labelZh: "企业级智能体", labelEn: "Enterprise AI", href: "#capabilities" },
-  { labelZh: "解决方案", labelEn: "Solutions", href: "#solutions" },
+  { labelZh: "核心产品", labelEn: "Core Products", href: "#core-products" },
+  { labelZh: "定制开发", labelEn: "Custom Development", href: "#custom-development" },
   { labelZh: "关于我们", labelEn: "About Us", href: "#about" },
   { labelZh: "新闻中心", labelEn: "News", href: "/news", isPage: true },
   { labelZh: "联系我们", labelEn: "Contact", href: "#contact" },

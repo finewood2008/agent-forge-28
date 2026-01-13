@@ -4,22 +4,20 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { 
   Palette, 
-  Mic, 
   Eye,
   Lightbulb,
   RefreshCw,
-  Globe,
-  FileText,
   Route,
   TrendingUp,
   ArrowRight,
-  ExternalLink
+  ExternalLink,
+  Code2,
+  Cpu
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 // Import product images
 import xmakehubImage from "@/assets/xmakehub-screenshot.jpeg";
-import aiRecorderImage from "@/assets/ai-recorder-device.png";
 import droneInspectionImage from "@/assets/drone-inspection.png";
 
 export const SolutionsSection = () => {
@@ -50,26 +48,6 @@ export const SolutionsSection = () => {
       gradient: "from-primary to-primary/50",
     },
     {
-      id: "voice",
-      badgeZh: "AI录音卡",
-      badgeEn: "AI Recorder",
-      titleZh: "会议语音智能体",
-      titleEn: "Meeting Voice Agent",
-      subtitleZh: "专业级AI会议助手，让每场会议都有价值",
-      subtitleEn: "Professional AI meeting assistant for valuable meetings",
-      descZh: "软硬一体的智能会议解决方案，集成高清录音硬件与云端AI处理能力，实现会议全流程智能化。",
-      descEn: "Integrated hardware-software meeting solution with HD recording and cloud AI processing for end-to-end intelligent meetings.",
-      image: aiRecorderImage,
-      features: [
-        { icon: Mic, labelZh: "实时录音转写", labelEn: "Real-time Transcription", descZh: "高精度语音识别", descEn: "High-precision speech recognition" },
-        { icon: Globe, labelZh: "多语言翻译", labelEn: "Multilingual Translation", descZh: "实时跨语言沟通", descEn: "Real-time cross-language communication" },
-        { icon: FileText, labelZh: "智能纪要", labelEn: "Smart Minutes", descZh: "自动生成会议总结", descEn: "Auto-generated meeting summaries" },
-      ],
-      applicationsZh: ["企业会议室", "商务人士", "跨国团队", "法律/医疗记录"],
-      applicationsEn: ["Conference Rooms", "Business Professionals", "Global Teams", "Legal/Medical Records"],
-      gradient: "from-accent to-accent/50",
-    },
-    {
       id: "skyeye",
       badgeZh: "低空巡检智能体",
       badgeEn: "Drone Inspection AI",
@@ -91,8 +69,14 @@ export const SolutionsSection = () => {
     },
   ];
 
+  const capabilities = [
+    { icon: Code2, titleZh: "全栈开发", titleEn: "Full-Stack Development", descZh: "从需求分析到部署交付", descEn: "From requirements to deployment" },
+    { icon: Cpu, titleZh: "模型定制", titleEn: "Model Customization", descZh: "针对行业场景训练优化", descEn: "Industry-specific training and optimization" },
+    { icon: RefreshCw, titleZh: "持续迭代", titleEn: "Continuous Iteration", descZh: "长期运维与模型升级", descEn: "Long-term maintenance and model upgrades" },
+  ];
+
   return (
-    <section id="solutions" className="section-padding relative">
+    <section id="custom-development" className="section-padding relative">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
 
@@ -102,21 +86,54 @@ export const SolutionsSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-4xl mx-auto mb-16"
         >
-          <span className="text-accent text-sm font-medium tracking-wider uppercase mb-4 block">
-            Our Products
+          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-accent/10 text-accent mb-6">
+            {t("定制开发", "Custom Development")}
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            {t("我们开发的", "Our")}
-            <span className="gradient-text">{t("行业智能体", "Industry AI Agents")}</span>
+            {t("企业级", "Enterprise")}
+            <span className="gradient-text">{t("AGENT定制开发", " Agent Development")}</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-lg leading-relaxed mb-8">
             {t(
-              "已服务多个行业场景，从硬件设计到语音交互再到视觉认知，证明我们的全栈智能体开发能力",
-              "Serving multiple industries from hardware design to voice interaction to visual cognition, demonstrating our full-stack AI agent development capabilities"
+              "基于核心技术能力，我们为企业提供定制化AI智能体开发服务。以下是我们成功交付的行业案例，展示我们的全栈智能体开发能力",
+              "Leveraging our core technical capabilities, we provide customized AI agent development services. Below are our successfully delivered industry cases demonstrating our full-stack agent development expertise"
             )}
           </p>
+
+          {/* Capabilities */}
+          <div className="grid md:grid-cols-3 gap-6 mt-8">
+            {capabilities.map((cap, index) => (
+              <motion.div
+                key={cap.titleZh}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex items-center gap-4 p-4 rounded-xl bg-card/50 border border-border/50"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                  <cap.icon className="w-6 h-6 text-primary" />
+                </div>
+                <div className="text-left">
+                  <p className="font-medium">{t(cap.titleZh, cap.titleEn)}</p>
+                  <p className="text-sm text-muted-foreground">{t(cap.descZh, cap.descEn)}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Case Study Label */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mb-8"
+        >
+          <span className="text-sm text-muted-foreground uppercase tracking-wider">
+            {t("— 成功案例 —", "— Success Cases —")}
+          </span>
         </motion.div>
 
         {/* Solution Cards */}
@@ -126,7 +143,7 @@ export const SolutionsSection = () => {
               key={solution.id}
               initial={{ opacity: 0, y: 60 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: index * 0.2 + 0.2 }}
+              transition={{ duration: 0.7, delay: index * 0.2 + 0.4 }}
               className="gradient-border rounded-3xl overflow-hidden bg-card"
             >
               <div className="p-8 md:p-12">
@@ -207,6 +224,27 @@ export const SolutionsSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center mt-12"
+        >
+          <p className="text-muted-foreground mb-6">
+            {t(
+              "有定制开发需求？我们的技术团队将为您提供专业咨询",
+              "Need custom development? Our technical team will provide professional consultation"
+            )}
+          </p>
+          <Button variant="outline" size="lg" asChild>
+            <a href="#contact">
+              {t("咨询定制服务", "Inquire Custom Services")}
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
