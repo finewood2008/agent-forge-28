@@ -35,7 +35,7 @@ import {
 import recorderCardFront from "@/assets/recorder-card-front.png";
 import recorderCardBack from "@/assets/recorder-card-back.png";
 import recorderPhoneMagnetic from "@/assets/recorder-phone-magnetic.png";
-import recorderBadge from "@/assets/recorder-badge.png";
+import recorderBadgeEink from "@/assets/recorder-badge-eink.png";
 
 export default function SmartRecorder() {
   const ref = useRef(null);
@@ -130,7 +130,7 @@ export default function SmartRecorder() {
     {
       id: "badge",
       icon: BadgeCheck,
-      images: [recorderBadge],
+      images: [recorderBadgeEink],
       titleZh: "智能录音工牌",
       titleEn: "Smart Recording Badge",
       subtitleZh: "水墨屏显示 | 企业标配",
@@ -301,102 +301,7 @@ export default function SmartRecorder() {
         </div>
       </section>
 
-      {/* Technology Advantages */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("底层技术优势", "Core Technology Advantages")}
-            </h2>
-            <p className="text-muted-foreground">
-              {t("源自专业级硬件平台的核心技术", "Professional-grade hardware platform technology")}
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {techAdvantages.map((tech, index) => (
-              <motion.div
-                key={tech.titleZh}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <tech.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <h3 className="text-lg font-semibold">
-                        {t(tech.titleZh, tech.titleEn)}
-                      </h3>
-                      <span className="px-2 py-0.5 rounded text-xs font-bold bg-primary/10 text-primary">
-                        {tech.highlight}
-                      </span>
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      {t(tech.descZh, tech.descEn)}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Specifications Table */}
-      <section className="py-20">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("产品规格参数", "Product Specifications")}
-            </h2>
-            <p className="text-muted-foreground">
-              {t("专业级硬件配置，满足企业级应用需求", "Professional hardware for enterprise applications")}
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
-          >
-            <div className="gradient-border rounded-2xl overflow-hidden bg-card">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-border/50">
-                {specifications.map((spec, index) => (
-                  <div 
-                    key={spec.labelZh}
-                    className="p-4 md:p-6 bg-card hover:bg-secondary/30 transition-colors"
-                  >
-                    <p className="text-sm text-muted-foreground mb-1">
-                      {t(spec.labelZh, spec.labelEn)}
-                    </p>
-                    <p className="font-semibold text-foreground">
-                      {t(spec.valueZh, spec.valueEn)}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Product Series */}
+      {/* Product Series - Moved to top */}
       <section className="py-20 bg-secondary/20 relative">
         <div className="container">
           <motion.div
@@ -491,6 +396,101 @@ export default function SmartRecorder() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Technology Advantages */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {t("底层技术优势", "Core Technology Advantages")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("源自专业级硬件平台的核心技术", "Professional-grade hardware platform technology")}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {techAdvantages.map((tech, index) => (
+              <motion.div
+                key={tech.titleZh}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 hover:shadow-lg transition-all"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <tech.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="text-lg font-semibold">
+                        {t(tech.titleZh, tech.titleEn)}
+                      </h3>
+                      <span className="px-2 py-0.5 rounded text-xs font-bold bg-primary/10 text-primary">
+                        {tech.highlight}
+                      </span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      {t(tech.descZh, tech.descEn)}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Specifications Table */}
+      <section className="py-20">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              {t("产品规格参数", "Product Specifications")}
+            </h2>
+            <p className="text-muted-foreground">
+              {t("专业级硬件配置，满足企业级应用需求", "Professional hardware for enterprise applications")}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="gradient-border rounded-2xl overflow-hidden bg-card">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-border/50">
+                {specifications.map((spec, index) => (
+                  <div 
+                    key={spec.labelZh}
+                    className="p-4 md:p-6 bg-card hover:bg-secondary/30 transition-colors"
+                  >
+                    <p className="text-sm text-muted-foreground mb-1">
+                      {t(spec.labelZh, spec.labelEn)}
+                    </p>
+                    <p className="font-semibold text-foreground">
+                      {t(spec.valueZh, spec.valueEn)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
