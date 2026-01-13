@@ -16,7 +16,7 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import aiRecorderImage from "@/assets/ai-recorder-device.png";
+import enterpriseAudioSolutionImage from "@/assets/enterprise-audio-solution.png";
 
 export const CoreProductSection = () => {
   const ref = useRef(null);
@@ -115,27 +115,11 @@ export const CoreProductSection = () => {
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img 
-                    src={aiRecorderImage} 
-                    alt={t("智能录音设备", "Smart Recording Device")}
+                    src={enterpriseAudioSolutionImage} 
+                    alt={t("企业级智能音频解决方案", "Enterprise Audio Intelligence Solution")}
                     className="w-full h-auto object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                 </div>
-                {/* Floating badges */}
-                <motion.div 
-                  className="absolute -top-4 -right-4 px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium shadow-lg"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  {t("软硬一体", "Hardware + Software")}
-                </motion.div>
-                <motion.div 
-                  className="absolute -bottom-4 -left-4 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-medium shadow-lg"
-                  animate={{ y: [0, 5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                >
-                  {t("数据安全", "Data Security")}
-                </motion.div>
               </div>
 
               {/* Architecture Flow */}
