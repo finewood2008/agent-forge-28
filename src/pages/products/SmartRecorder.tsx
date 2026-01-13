@@ -32,9 +32,10 @@ import {
   Layers
 } from "lucide-react";
 
-import recorderCard from "@/assets/recorder-card.png";
+import recorderCardFront from "@/assets/recorder-card-front.png";
+import recorderCardBack from "@/assets/recorder-card-back.png";
+import recorderPhoneMagnetic from "@/assets/recorder-phone-magnetic.png";
 import recorderBadge from "@/assets/recorder-badge.png";
-import recorderChestBadge from "@/assets/recorder-chest-badge.png";
 
 export default function SmartRecorder() {
   const ref = useRef(null);
@@ -114,7 +115,7 @@ export default function SmartRecorder() {
     {
       id: "card",
       icon: CreditCard,
-      image: recorderCard,
+      images: [recorderCardFront, recorderCardBack, recorderPhoneMagnetic],
       titleZh: "智能录音卡",
       titleEn: "Smart Recording Card",
       subtitleZh: "2.89mm 超薄卡片",
@@ -129,32 +130,17 @@ export default function SmartRecorder() {
     {
       id: "badge",
       icon: BadgeCheck,
-      image: recorderBadge,
+      images: [recorderBadge],
       titleZh: "智能录音工牌",
       titleEn: "Smart Recording Badge",
-      subtitleZh: "企业标准配置",
-      subtitleEn: "Enterprise Standard",
-      descZh: "将超薄录音卡嵌入企业工牌内，员工日常佩戴即可自动记录工作中的语音交互。支持多人角色识别，是销售团队管理和客服质检的标配设备。",
-      descEn: "Ultra-thin recording card embedded in enterprise badge. Auto-records voice interactions during daily work. Supports multi-speaker recognition.",
-      featuresZh: ["工牌一体化", "自动录音", "多人识别", "24小时续航"],
-      featuresEn: ["Badge Integrated", "Auto Recording", "Multi-speaker", "24h Battery"],
-      scenariosZh: ["零售门店", "客服中心", "销售团队"],
-      scenariosEn: ["Retail Stores", "Call Centers", "Sales Teams"],
-    },
-    {
-      id: "chest",
-      icon: Award,
-      image: recorderChestBadge,
-      titleZh: "智能胸牌",
-      titleEn: "Smart Chest Badge",
-      subtitleZh: "高端商务场景",
-      subtitleEn: "Premium Business",
-      descZh: "精致的磁吸胸牌设计，适用于高端商务场景。优雅便捷的佩戴方式，支持多场景自动切换录音模式，会议与通话场景智能识别。",
-      descEn: "Elegant magnetic chest badge design for premium business scenarios. Smart scenario recognition for meetings and calls.",
-      featuresZh: ["磁吸佩戴", "场景识别", "实时同步", "双频快传"],
-      featuresEn: ["Magnetic Wear", "Scene Detection", "Real-time Sync", "Dual-band"],
-      scenariosZh: ["高管会议", "重要商务", "培训考核"],
-      scenariosEn: ["Executive Meetings", "Important Business", "Training"],
+      subtitleZh: "水墨屏显示 | 企业标配",
+      subtitleEn: "E-ink Display | Enterprise Standard",
+      descZh: "将超薄录音卡嵌入企业工牌内，配备水墨屏显示屏，可实时显示员工信息、会议议程、录音状态等内容。水墨屏采用电子墨水技术，阳光下清晰可见，超低功耗不影响续航。员工日常佩戴即可自动记录工作语音交互，是销售团队管理和客服质检的标配设备。",
+      descEn: "Ultra-thin recording card embedded in enterprise badge with E-ink display for real-time employee info, meeting agenda, and recording status. E-ink technology ensures clear visibility under sunlight with ultra-low power consumption.",
+      featuresZh: ["水墨屏显示", "工牌一体化", "自动录音", "阳光可视"],
+      featuresEn: ["E-ink Display", "Badge Integrated", "Auto Recording", "Sunlight Visible"],
+      scenariosZh: ["零售门店", "客服中心", "销售团队", "展会活动"],
+      scenariosEn: ["Retail Stores", "Call Centers", "Sales Teams", "Trade Shows"],
     },
   ];
 
@@ -442,11 +428,24 @@ export default function SmartRecorder() {
                     {/* Image */}
                     <div className={index % 2 === 1 ? "lg:order-2" : ""}>
                       <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-secondary/50 to-secondary/20 p-8">
-                        <img 
-                          src={product.image} 
-                          alt={t(product.titleZh, product.titleEn)}
-                          className="w-full h-auto object-contain max-h-80 mx-auto"
-                        />
+                        {product.images.length > 1 ? (
+                          <div className="grid grid-cols-3 gap-4">
+                            {product.images.map((img, imgIndex) => (
+                              <img 
+                                key={imgIndex}
+                                src={img} 
+                                alt={`${t(product.titleZh, product.titleEn)} ${imgIndex + 1}`}
+                                className="w-full h-auto object-contain rounded-lg hover:scale-105 transition-transform cursor-pointer"
+                              />
+                            ))}
+                          </div>
+                        ) : (
+                          <img 
+                            src={product.images[0]} 
+                            alt={t(product.titleZh, product.titleEn)}
+                            className="w-full h-auto object-contain max-h-80 mx-auto"
+                          />
+                        )}
                       </div>
                     </div>
 
